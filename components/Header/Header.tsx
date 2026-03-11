@@ -2,8 +2,10 @@
 import { Box, useMediaQuery, useTheme } from '@mui/material';
 import { Logo } from '@/components/Logo/Logo';
 import { config } from '@/lib/config';
+import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 
-const menuItems = [
+const scrollItems = [
   { label: 'Тарифи', id: 'tarrif-section' },
   { label: 'Обладнання', id: 'equipment-section' },
   { label: 'Підключитись', id: 'form-section' },
@@ -12,29 +14,42 @@ const menuItems = [
 export const Header = () => {
   const theme = useTheme();
   const isMob = useMediaQuery(theme.breakpoints.down(765));
+  const pathname = usePathname();
+  const isHome = pathname === '/';
 
   const scrollToSection = (e: React.MouseEvent<HTMLAnchorElement>, id: string) => {
+    if (!isHome) return;
     e.preventDefault();
     document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
   };
 
   return (
     <Box component="header" className="flex items-center justify-between pt-[28px] pb-[10px]">
-      <Logo />
+      <Link href="/" className="no-underline">
+        <Logo />
+      </Link>
+
       {!isMob && (
         <Box className="flex items-center gap-[32px]">
-          {menuItems.map((item) => (
+          {scrollItems.map((item) => (
             <a
               key={item.id}
-              href={`#${item.id}`}
+              href={isHome ? `#${item.id}` : `/#${item.id}`}
               className="text-white/70 hover:text-white text-[15px] font-medium transition-colors duration-200 no-underline"
               onClick={(e) => scrollToSection(e, item.id)}
             >
               {item.label}
             </a>
           ))}
+          <Link
+            href="/blog"
+            className="text-white/70 hover:text-[#00B3DC] text-[15px] font-medium transition-colors duration-200 no-underline"
+          >
+            Блог
+          </Link>
         </Box>
       )}
+
       <a href={`tel:+${config.phone}`} className="flex items-center gap-[10px] no-underline group" aria-label="Зателефонувати до Укртелеком">
         <Box className="w-[38px] h-[38px] rounded-full bg-[#00B3DC]/20 border border-[#00B3DC]/40 flex items-center justify-center group-hover:bg-[#00B3DC]/40 transition-all duration-200">
           <svg width="16" height="16" viewBox="0 0 16 16" fill="none">

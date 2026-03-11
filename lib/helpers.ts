@@ -89,11 +89,12 @@ export const stats = [
   { value: '1', label: 'Гбіт/с швидкість', icon: '🚀' },
 ];
 
-export const navItems = [
+export const footerNavItems = [
   { label: 'Тарифи', id: 'tarrif-section' },
   { label: 'Обладнання', id: 'equipment-section' },
   { label: 'Відгуки', id: 'reviews-section' },
   { label: 'Підключитись', id: 'form-section' },
+  { label: 'Блог', id: '', href: '/blog' },
 ];
 
 export const socials = [

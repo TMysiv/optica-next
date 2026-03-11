@@ -13,6 +13,23 @@ body {
   overflow-x: hidden;
 }
 
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #6b7280;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #9ca3af;
+}
+
 .banner-bg::after {
   content: "";
   position: absolute;
@@ -126,7 +143,7 @@ body {
   height: 19px;
   left: 0;
   top: -4px;
-  background-image: url("../public/images/check.svg");
+  background-image: url("/images/check.svg");
 }
 
 .tariff-description > *:last-of-type {
@@ -276,6 +293,15 @@ input:-webkit-autofill {
   background-clip: text !important;
   -webkit-background-clip: text !important;
   box-shadow: none !important;
+}
+
+.blog-card {
+  background: linear-gradient(135deg, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0.02) 100%);
+  border: 1px solid rgba(255,255,255,0.1);
+}
+.blog-card:hover {
+  border-color: rgba(0,179,220,0.4);
+  transform: translateY(-4px);
 }
 
 @media (max-width: 1200px) {
@@ -595,3 +621,80 @@ input:-webkit-autofill {
   }
 }
 
+
+/* ── Blog article content styles ─────────────────────────── */
+.blog-content {
+  color: rgba(255,255,255,0.8);
+  font-size: 16px;
+  line-height: 1.75;
+}
+
+.blog-content h2 {
+  color: #ffffff;
+  font-size: 24px;
+  font-weight: 700;
+  margin: 40px 0 16px;
+  line-height: 1.3;
+}
+
+.blog-content h3 {
+  color: #ffffff;
+  font-size: 20px;
+  font-weight: 600;
+  margin: 32px 0 12px;
+  line-height: 1.3;
+}
+
+.blog-content p {
+  margin: 0 0 20px;
+}
+
+.blog-content strong {
+  color: #ffffff;
+  font-weight: 600;
+}
+
+.blog-content ul {
+  margin: 0 0 20px;
+  padding-left: 0;
+  list-style: none;
+}
+
+.blog-content ul li {
+  padding: 6px 0 6px 28px;
+  position: relative;
+  color: rgba(255,255,255,0.75);
+}
+
+.blog-content ul li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 14px;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #00B3DC;
+}
+
+.blog-content blockquote {
+  margin: 24px 0;
+  padding: 16px 20px;
+  border-left: 3px solid #00B3DC;
+  background: rgba(0,179,220,0.07);
+  border-radius: 0 8px 8px 0;
+  color: rgba(255,255,255,0.7);
+  font-style: italic;
+}
+
+@media (max-width: 768px) {
+  .blog-content h2 {
+    font-size: 20px;
+  }
+  .blog-content h3 {
+    font-size: 17px;
+  }
+  .blog-content {
+    font-size: 15px;
+  }
+}

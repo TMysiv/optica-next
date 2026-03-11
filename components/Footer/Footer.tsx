@@ -1,10 +1,11 @@
 'use client';
 import { Box, useMediaQuery, useTheme } from '@mui/material';
 import { Logo } from '@/components/Logo/Logo';
-import { navItems, socials, legalLinks } from '@/lib/helpers';
+import { footerNavItems, socials, legalLinks } from '@/lib/helpers';
 import { SocialLink } from '@/components/SocialLink/SocialLink';
 import { EmailLink } from '@/components/EmailLink/EmailLink';
 import { config } from '@/lib/config';
+import Link from 'next/link';
 
 const FooterColTitle = ({ children }: { children: React.ReactNode }) => (
   <p className="text-white/40 text-[11px] font-semibold uppercase tracking-[1.5px] mb-[16px] m-0">{children}</p>
@@ -14,7 +15,24 @@ export const Footer = () => {
   const theme = useTheme();
   const isMob = useMediaQuery(theme.breakpoints.down(765));
 
-  const scrollTo = (id: string) => document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
+  const scrollTo = (id: string) => {
+    if (id) document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
+  };
+
+  const NavButton = ({ label, id, href }: { label: string; id: string; href?: string }) => {
+    if (href) {
+      return (
+        <Link href={href} className="text-white/60 hover:text-white text-[14px] text-left no-underline transition-colors duration-200">
+          {label}
+        </Link>
+      );
+    }
+    return (
+      <button onClick={() => scrollTo(id)} className="text-white/60 hover:text-white text-[14px] text-left transition-colors duration-200 bg-transparent border-none cursor-pointer p-0">
+        {label}
+      </button>
+    );
+  };
 
   return (
     <Box component="footer" aria-label="Футер сайту Укртелеком" className="w-full mt-[60px]" sx={{ borderTop: '1px solid rgba(255,255,255,0.08)' }}>
@@ -30,10 +48,18 @@ export const Footer = () => {
             </a>
 
             <Box className="grid grid-cols-2 gap-[8px] mb-[28px]">
-              {navItems.map(({ label, id }) => (
-                <button key={id} onClick={() => scrollTo(id)} className="rounded-[10px] py-[12px] px-[16px] text-white/70 text-[14px] font-medium text-center transition-all duration-200 bg-transparent cursor-pointer" style={{ border: '1px solid rgba(255,255,255,0.1)', background: 'rgba(255,255,255,0.03)' }}>
-                  {label}
-                </button>
+              {footerNavItems.map(({ label, id, href }) => (
+                <div key={label}>
+                  {href ? (
+                    <Link href={href} className="no-underline rounded-[10px] py-[12px] px-[16px] text-white/70 text-[14px] font-medium text-center transition-all duration-200 block" style={{ border: '1px solid rgba(255,255,255,0.1)', background: 'rgba(255,255,255,0.03)' }}>
+                      {label}
+                    </Link>
+                  ) : (
+                    <button onClick={() => scrollTo(id)} className="rounded-[10px] py-[12px] px-[16px] text-white/70 text-[14px] font-medium text-center transition-all duration-200 bg-transparent cursor-pointer w-full" style={{ border: '1px solid rgba(255,255,255,0.1)', background: 'rgba(255,255,255,0.03)' }}>
+                      {label}
+                    </button>
+                  )}
+                </div>
               ))}
             </Box>
 
@@ -57,10 +83,8 @@ export const Footer = () => {
             <Box>
               <FooterColTitle>Навігація</FooterColTitle>
               <Box className="flex flex-col gap-[10px]">
-                {navItems.map(({ label, id }) => (
-                  <button key={id} onClick={() => scrollTo(id)} className="text-white/60 hover:text-white text-[14px] text-left transition-colors duration-200 bg-transparent border-none cursor-pointer p-0">
-                    {label}
-                  </button>
+                {footerNavItems.map(({ label, id, href }) => (
+                  <NavButton key={label} label={label} id={id} href={href} />
                 ))}
               </Box>
             </Box>
@@ -90,7 +114,7 @@ export const Footer = () => {
           Підключити оптичний інтернет GPON від Укртелеком по всій Україні
         </h2>
         <p className="text-white/25 text-[12px] leading-[1.7] m-0">
-          Укртелеком надає послуги підключення оптичного інтернету GPON зі швидкістю до 1 Гбіт/с у Києві, Харкові, Одесі, Дніпрі, Запоріжжі, Львові та інших містах України. Технологія GPON забезпечує стабільний інтернет з енергонезалежністю мережі до 96 годин. Тарифи від 99 грн/міс з фіксованою ціною на 2 роки.
+          Укртелеком надає послуги підключення оптичного інтернету GPON зі швидкістю до 1 Гбіт/с у Києві, Харкові, Одесі, Дніпрі, Запоріжжі, Львові та інших містах України. Технологія GPON забезпечує стабільний інтернет з енергонезалежністю мережі до 96 годин. Тарифи від 99 грн/міс з фіксованою ціною на 2 роки. <Link href="/blog" className="text-white/40 hover:text-white/70 transition-colors">Читати більше про GPON</Link>.
         </p>
       </Box>
 
