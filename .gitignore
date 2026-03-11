@@ -8,8 +8,6 @@
 /out/
 /build
 
-# Env
-.env
 
 # Misc
 .DS_Store
