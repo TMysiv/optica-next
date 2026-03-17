@@ -88,7 +88,16 @@ export const Form = () => {
         >
           <Grid container className="w-full" spacing={3}>
             <Grid size={{ xs: 12 }}>
-              <TextField fullWidth select label="Послуга" name="service" onChange={handleChange} value={offer.service} required {...textFieldProps} error={Boolean(validationErrors.service)} helperText={validationErrors.service}>
+              <TextField
+                fullWidth
+                select
+                label="Послуга"
+                name="service"
+                onChange={handleChange}
+                value={offer.service}
+                required {...textFieldProps}
+                error={Boolean(validationErrors.service)}
+                helperText={validationErrors.service}>
                 {createMenuItemArray(services)}
               </TextField>
             </Grid>
@@ -96,15 +105,41 @@ export const Form = () => {
             <Grid size={{ xs: 12 }} container>
               <Grid size={{ xs: 12 }}>
                 <label className="flex items-center cursor-pointer">
-                  <Checkbox name="isMash" checked={offer.isMash} onChange={handleChange} size="small" sx={{ paddingLeft: 0, color: '#fff', '&.Mui-checked': { color: '#fff' } }} />
+                  <Checkbox
+                    name="isMash"
+                    checked={offer.isMash}
+                    onChange={handleChange}
+                    size="small"
+                    sx={{ paddingLeft: 0, color: '#fff', '&.Mui-checked': { color: '#fff' } }}
+                  />
                   <span className="text-white text-lg">Потрібен Гігабітний Wi-Fi роутер</span>
                 </label>
               </Grid>
               {offer.isMash && (
                 <Grid size={{ xs: 12, md: 6 }}>
                   <Box display="flex" alignItems="center" gap={1}>
-                    <TextField value={offer.countMash} onChange={handleChange} name="countMash" inputMode="numeric" type="number" error={Boolean(validationErrors.countMash)} helperText={validationErrors.countMash}
-                      sx={{ width: '20px', '& input': { textAlign: 'center', height: '20px', color: 'white' }, '& input[type=number]': { MozAppearance: 'textfield' }, '& .MuiInput-underline:before': { borderBottomColor: 'white' }, '& .MuiInput-underline:after': { borderBottomColor: 'white' }, ...{ variant: 'standard', size: 'small', margin: 'none' } }}
+                    <TextField
+                      value={offer.countMash}
+                      onChange={handleChange}
+                      name="countMash"
+                      inputMode="numeric"
+                      type="number"
+                      variant="standard"
+                      size="small"
+                      error={Boolean(validationErrors.countMash)}
+                      helperText={validationErrors.countMash}
+                      sx={{
+                        width: '48px',
+                        '& input': {
+                          textAlign: 'center',
+                          color: 'white',
+                          MozAppearance: 'textfield',
+                          '&::-webkit-outer-spin-button': { display: 'none' },
+                          '&::-webkit-inner-spin-button': { display: 'none' },
+                        },
+                        '& .MuiInput-underline:before': { borderBottomColor: 'white' },
+                        '& .MuiInput-underline:after': { borderBottomColor: 'white' },
+                      }}
                     />
                     {[
                       { icon: <RemoveIcon fontSize="small" />, action: () => setOffer((p) => ({ ...p, countMash: Math.max(p.countMash - 1, 1) })) },
@@ -120,13 +155,33 @@ export const Form = () => {
             </Grid>
 
             <Grid size={{ xs: 12, md: 6 }}>
-              <TextField fullWidth select label="Швидкість" name="speed" value={offer.speed} onChange={handleChange} required {...textFieldProps} error={Boolean(validationErrors.speed)} helperText={validationErrors.speed}>
+              <TextField
+                fullWidth
+                select
+                label="Швидкість"
+                name="speed"
+                value={offer.speed}
+                onChange={handleChange}
+                required {...textFieldProps}
+                error={Boolean(validationErrors.speed)}
+                helperText={validationErrors.speed}
+              >
                 {createMenuItemArray(speeds)}
               </TextField>
             </Grid>
 
             <Grid size={{ xs: 12, md: 6 }}>
-              <TextField fullWidth select label="Тип Будинку" name="typeOfHouse" value={offer.typeOfHouse} onChange={handleChange} required {...textFieldProps} error={Boolean(validationErrors.typeOfHouse)} helperText={validationErrors.typeOfHouse}>
+              <TextField
+                fullWidth
+                select
+                label="Тип Будинку"
+                name="typeOfHouse"
+                value={offer.typeOfHouse}
+                onChange={handleChange}
+                required {...textFieldProps}
+                error={Boolean(validationErrors.typeOfHouse)}
+                helperText={validationErrors.typeOfHouse}
+              >
                 {createMenuItemArray(houseTypes)}
               </TextField>
             </Grid>
@@ -134,9 +189,22 @@ export const Form = () => {
             <Grid size={{ xs: 12, md: 6 }}>
               <Autocomplete
                 options={regions} value={offer.region}
-                onChange={(_, newValue) => { handleAutoCompleteChange('region', newValue || ''); setOffer((p) => ({ ...p, city: '' })); }}
+                onChange={(_, newValue) => {
+                  handleAutoCompleteChange('region', newValue || ''); setOffer((p) => ({ ...p, city: '' }));
+                }}
                 noOptionsText="Нічого не знайдено"
-                renderInput={(params) => <TextField {...params} fullWidth label="Область" name="region" required {...textFieldProps} error={Boolean(validationErrors.region)} helperText={validationErrors.region} />}
+                renderInput={(params) =>
+                  <TextField
+                    {...params}
+                    fullWidth
+                    label="Область"
+                    name="region"
+                    required
+                    {...textFieldProps}
+                    error={Boolean(validationErrors.region)}
+                    helperText={validationErrors.region}
+                  />
+                }
               />
             </Grid>
 
@@ -145,34 +213,112 @@ export const Form = () => {
                 options={cities} value={offer.city}
                 onChange={(_, newValue) => handleAutoCompleteChange('city', newValue || '')}
                 disabled={!offer.region} noOptionsText="Нічого не знайдено"
-                renderInput={(params) => <TextField {...params} fullWidth label="Населений пункт" name="city" required {...textFieldProps} error={Boolean(validationErrors.city)} helperText={validationErrors.city} />}
+                renderInput={(params) =>
+                  <TextField
+                    {...params}
+                    fullWidth
+                    label="Населений пункт"
+                    name="city"
+                    required
+                    {...textFieldProps}
+                    error={Boolean(validationErrors.city)}
+                    helperText={validationErrors.city}
+                  />
+                }
               />
             </Grid>
 
             <Grid size={{ xs: 12, md: 6 }}>
-              <TextField fullWidth label="Вулиця" name="street" value={offer.street} onChange={handleChange} placeholder="Шевченка" required {...textFieldProps} error={Boolean(validationErrors.street)} helperText={validationErrors.street} />
+              <TextField
+                fullWidth
+                label="Вулиця"
+                name="street"
+                value={offer.street}
+                onChange={handleChange}
+                placeholder="Шевченка"
+                required {...textFieldProps}
+                error={Boolean(validationErrors.street)}
+                helperText={validationErrors.street}
+              />
             </Grid>
 
             <Grid size={{ xs: 6, md: 3 }}>
-              <TextField fullWidth label="Будинок" name="house" value={offer.house} onChange={handleChange} placeholder="11" required {...textFieldProps} error={Boolean(validationErrors.house)} helperText={validationErrors.house} />
+              <TextField
+                fullWidth
+                label="Будинок"
+                name="house"
+                value={offer.house}
+                onChange={handleChange}
+                placeholder="11"
+                required {...textFieldProps}
+                error={Boolean(validationErrors.house)}
+                helperText={validationErrors.house}
+              />
             </Grid>
 
             <Grid size={{ xs: 6, md: 3 }}>
-              <TextField fullWidth label="Квартира" name="flat" value={offer.flat} onChange={handleChange} placeholder="0" {...textFieldProps} error={Boolean(validationErrors.flat)} helperText={validationErrors.flat} />
+              <TextField
+                fullWidth
+                label="Квартира"
+                name="flat"
+                value={offer.flat}
+                onChange={handleChange}
+                placeholder="0"
+                {...textFieldProps}
+                error={Boolean(validationErrors.flat)}
+                helperText={validationErrors.flat}
+              />
             </Grid>
 
             <Grid size={{ xs: 12, md: 6 }}>
-              <TextField fullWidth label="Ваше ім'я" name="username" value={offer.username} onChange={handleChange} required placeholder="Ваше ім'я" {...textFieldProps} error={Boolean(validationErrors.username)} helperText={validationErrors.username} />
+              <TextField
+                fullWidth
+                label="Ваше ім'я"
+                name="username"
+                value={offer.username}
+                onChange={handleChange}
+                required
+                placeholder="Ваше ім'я"
+                {...textFieldProps}
+                error={Boolean(validationErrors.username)}
+                helperText={validationErrors.username}
+              />
             </Grid>
 
             <Grid size={{ xs: 12, md: 6 }}>
-              <TextField type="tel" fullWidth label="Ваш телефон" name="phone" required placeholder="+38 (0__) ___ __ __" onChange={handleChange} value={offer.phone} {...textFieldProps} error={Boolean(validationErrors.phone)} helperText={validationErrors.phone}
-                InputProps={{ inputComponent: PhoneMask as any, inputProps: { error: Boolean(validationErrors.phone) } }}
+              <TextField
+                type="tel"
+                fullWidth
+                label="Ваш телефон"
+                name="phone"
+                required
+                placeholder="+38 (0__) ___ __ __"
+                onChange={handleChange}
+                value={offer.phone}
+                {...textFieldProps}
+                error={Boolean(validationErrors.phone)}
+                helperText={validationErrors.phone}
+                InputProps={{
+                  inputComponent: PhoneMask as any,
+                  inputProps: {
+                    error: Boolean(validationErrors.phone)
+                  }
+                }}
               />
             </Grid>
 
             <Grid size={{ xs: 12 }}>
-              <TextField fullWidth label="Примітка" name="note" value={offer.note} onChange={handleChange} placeholder="Примітка" {...textFieldProps} error={Boolean(validationErrors.note)} helperText={validationErrors.note} />
+              <TextField
+                fullWidth
+                label="Примітка"
+                name="note"
+                value={offer.note}
+                onChange={handleChange}
+                placeholder="Примітка"
+                {...textFieldProps}
+                error={Boolean(validationErrors.note)}
+                helperText={validationErrors.note}
+              />
             </Grid>
           </Grid>
 
@@ -180,10 +326,22 @@ export const Form = () => {
             Відправляючи Заявку, Ви даєте згоду АТ «Укртелеком» на обробку Ваших персональних даних відповідно до умов Закону України «Про захист персональних даних» **
           </p>
 
-          <CustomButton text="ПІДКЛЮЧИТИ" width={247} className="bg-cyan-500 text-white hover:bg-yellow-850 hover:text-black text-xl mt-5" handleClick={handleSaveOffer} />
+          <CustomButton
+            text="ПІДКЛЮЧИТИ"
+            width={247}
+            className="bg-cyan-500 text-white hover:bg-yellow-850 hover:text-black text-xl mt-5"
+            handleClick={handleSaveOffer}
+          />
 
           {!isS && (
-            <img src="/images/mesh-router.png" alt="Wi-Fi роутер TP-Link Mercusys EasyMesh для GPON інтернету" className="w-45 h-70 absolute -right-7 -bottom-12" loading="lazy" width={180} height={282} />
+            <img
+              src="/images/mesh-router.png"
+              alt="Wi-Fi роутер TP-Link Mercusys EasyMesh для GPON інтернету"
+              className="w-45 h-70 absolute -right-7 -bottom-12"
+              loading="lazy"
+              width={180}
+              height={282}
+            />
           )}
 
           {openModal && (
