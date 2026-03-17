@@ -28,3 +28,19 @@ export interface Tariff {
   modalElement: ReactElement;
   extraPrice?: string;
 }
+
+export interface CreateOfferDTO {
+  service: string;
+  isMash: boolean;
+  countMash?: number;
+  speed: string;
+  typeOfHouse: string;
+  region: string;
+  city: string;
+  street: string;
+  house: string;
+  flat?: string;
+  username: string;
+  phone: string;
+  note?: string;
+}
