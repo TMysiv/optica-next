@@ -64,6 +64,7 @@ export const Form = () => {
       const validateOffer = offerCreateSchema.validateSync(offer, { abortEarly: false }) as Offer;
       setValidationErrors({});
       setOpenModal(true);
+      setOffer(initialOffer);
       await createOffer({ ...validateOffer, note: validateOffer.note?.replace(/\s+/g, ' ') });
     } catch (errors) {
       setValidationErrors(beautifyErrors(errors));
