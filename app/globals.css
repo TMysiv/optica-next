@@ -305,6 +305,11 @@ input:-webkit-autofill {
 }
 
 @media (max-width: 1200px) {
+  .banner-bg,
+  .banner-wrapper {
+    height: 870px;
+  }
+
   .banner-section {
     max-width: calc(100vw - 54px);
   }
