@@ -23,7 +23,7 @@ export const metadata: Metadata = {
     locale: 'uk_UA',
     title: 'Підключити інтернет до 1 Гбіт/с | Укртелеком GPON',
     description: 'Оптичний інтернет GPON від Укртелеком — до 1 Гбіт/с, енергонезалежний до 96 годин. Тариф від 99 грн/міс.',
-    images: [{ url: '/images/desktop-banner.webp' }],
+    images: [{ url: '/images/desktop-banner.webp', width: 1200, height: 630, alt: 'Підключити GPON інтернет від Укртелеком' }],
   },
   twitter: {
     card: 'summary_large_image',

@@ -42,6 +42,12 @@ export const Header = () => {
             </a>
           ))}
           <Link
+            href="/aktsii"
+            className="text-white/70 hover:text-[#00B3DC] text-[15px] font-medium transition-colors duration-200 no-underline"
+          >
+            Акції
+          </Link>
+          <Link
             href="/blog"
             className="text-white/70 hover:text-[#00B3DC] text-[15px] font-medium transition-colors duration-200 no-underline"
           >

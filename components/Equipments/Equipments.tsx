@@ -54,6 +54,8 @@ export const Equipments = () => {
             src="/images/mesh-router.png"
             alt="Wi-Fi роутер TP-Link Mercusys EasyMesh для GPON інтернету Укртелеком"
             loading="lazy"
+            width={221}
+            height={184}
           />
           <Box className="equipment-price text-white text-center text-[28px] font-normal leading-normal pt-[12px] pb-[28px]">
             1 шт -{' '}
