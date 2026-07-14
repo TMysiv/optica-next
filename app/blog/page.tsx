@@ -2,9 +2,25 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import { getAllPosts } from '@/lib/posts';
 
+const SITE_URL = process.env.NEXT_PUBLIC_SITE ?? 'https://yourdomain.com';
+
 export const metadata: Metadata = {
-  title: 'Блог про інтернет | Укртелеком',
-  description: 'Корисні статті про інтернет, GPON технологію, поради з налаштування та вибору тарифу.',
+  title: 'Блог Укртелеком — статті про GPON інтернет і технології',
+  description: 'Корисні статті про GPON інтернет, налаштування роутерів та вибір тарифу від Укртелеком. Підключення оптичного інтернету по всій Україні.',
+  alternates: { canonical: `${SITE_URL}/blog` },
+  openGraph: {
+    type: 'website',
+    url: `${SITE_URL}/blog`,
+    title: 'Блог Укртелеком — статті про GPON інтернет і технології',
+    description: 'Корисні статті про GPON інтернет, налаштування роутерів та вибір тарифу від Укртелеком. Підключення оптичного інтернету по всій Україні.',
+    images: [{ url: '/images/desktop-banner.webp', width: 1200, height: 630, alt: 'Блог Укртелеком' }],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Блог Укртелеком — статті про GPON інтернет і технології',
+    description: 'Корисні статті про GPON інтернет, налаштування роутерів та вибір тарифу від Укртелеком.',
+    images: ['/images/desktop-banner.webp'],
+  },
 };
 
 const CATEGORY_COLORS: Record<string, string> = {

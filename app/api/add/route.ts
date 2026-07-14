@@ -40,8 +40,13 @@ export async function POST(req: NextRequest) {
 
     await sendTelegramMessage(
       config.telegramChat ?? '',
-      `Додана 1 заявка: ${offer.region} область, н.п. ${offer.city}, к.т. ${offer.phone.replace(/\D/g, '')}, піб ${offer.username}`
+      `Додана нова заявка:
+  Область: ${offer.region}
+  Н.п.: ${offer.city}
+  К.т.: ${offer.phone.replace(/\D/g, '')}
+  ПІБ: ${offer.username}`
     );
+
 
     return NextResponse.json({ message: 'Заявку успішно додано' }, { status: 201 });
   } catch (error) {

@@ -14,7 +14,7 @@ const tariffs: Tariff[] = [
     price: '99',
     extraPrice: '250',
     modalElement: <MarketingFTTx />,
-    description: ['Енергонезалежна оптика до 96 годин', 'Відома ціна на 2 роки!', 'Знижка 50% на ігри в хмарі'],
+    description: ['Енергонезалежна оптика до 96 годин', 'Знижка 50% на ігри в хмарі', 'Можливість оренди гігабітного роутера'],
   },
   {
     id: 2,
@@ -22,7 +22,7 @@ const tariffs: Tariff[] = [
     img: '/images/gpon-megogo.svg',
     price: '400',
     modalElement: <OptimaDualOffer />,
-    description: ['Акція діє 1 рік', 'Енергонезалежна оптика до 96 годин', 'Матчі збірної України', 'Преміальний контент Disney, Paramount', "TV на п'яти пристроях"],
+    description: ['Енергонезалежна оптика до 96 годин', 'Матчі збірної України', 'Преміальний контент Disney, Paramount', "TV на п'яти пристроях"],
   },
   {
     id: 3,
@@ -30,7 +30,7 @@ const tariffs: Tariff[] = [
     img: '/images/gpon-megogo.svg',
     price: '550',
     modalElement: <MaxDualOffer />,
-    description: ['Акція діє 1 рік', 'Енергонезалежна оптика до 96 годин', 'Ліга Чемпіонів, Ліга Європи, Ліга націй та інші ТОПові спортивні події 2026 року!', 'Преміальний контент Disney, Paramount, Warner.Bros, HBO Max', "TV на п'яти пристроях"],
+    description: ['Енергонезалежна оптика до 96 годин', 'Ліга Чемпіонів, Ліга Європи, Ліга націй та інші ТОПові спортивні події 2026 року!', 'Преміальний контент Disney, Paramount, Warner.Bros, HBO Max', "TV на п'яти пристроях"],
   },
 ];
 

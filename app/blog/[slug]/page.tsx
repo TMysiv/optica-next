@@ -21,8 +21,10 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
   const SITE_URL = process.env.NEXT_PUBLIC_SITE ?? 'https://yourdomain.com';
 
+  const pageTitle = post.title.includes('Укртелеком') ? post.title : `${post.title} | Укртелеком`;
+
   return {
-    title: `${post.title} | Укртелеком`,
+    title: pageTitle,
     description: post.description,
     alternates: { canonical: `${SITE_URL}/blog/${slug}` },
     openGraph: {
@@ -30,6 +32,13 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       description: post.description,
       type: 'article',
       publishedTime: post.date,
+      images: [{ url: `${SITE_URL}/images/desktop-banner.webp`, width: 1200, height: 630 }],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: post.title,
+      description: post.description,
+      images: [`${SITE_URL}/images/desktop-banner.webp`],
     },
   };
 }
@@ -48,16 +57,28 @@ export default async function BlogPostPage({ params }: Props) {
 
   const articleSchema = {
     '@context': 'https://schema.org',
-    '@type': 'Article',
+    '@type': 'BlogPosting',
     headline: post.title,
     description: post.description,
     datePublished: post.date,
-    author: { '@type': 'Organization', name: 'Укртелеком' },
+    dateModified: post.date,
+    author: { '@type': 'Organization', name: 'Укртелеком', url: SITE_URL },
     publisher: {
       '@type': 'Organization',
       name: 'Укртелеком',
       logo: { '@type': 'ImageObject', url: `${SITE_URL}/images/logo.svg` },
     },
+    mainEntityOfPage: { '@type': 'WebPage', '@id': `${SITE_URL}/blog/${slug}` },
+  };
+
+  const breadcrumbSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Головна', item: SITE_URL },
+      { '@type': 'ListItem', position: 2, name: 'Блог', item: `${SITE_URL}/blog` },
+      { '@type': 'ListItem', position: 3, name: post.title, item: `${SITE_URL}/blog/${slug}` },
+    ],
   };
 
   const htmlContent = markdownToHtml(post.content);
@@ -66,6 +87,7 @@ export default async function BlogPostPage({ params }: Props) {
   return (
     <main className="min-h-screen" style={{ background: '#233955' }}>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
 
       <div className="max-w-[800px] mx-auto px-4 pt-[60px] pb-[80px]">
 

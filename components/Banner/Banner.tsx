@@ -39,8 +39,12 @@ export const Banner = () => {
         {['ellipse-1', 'ellipse-2', 'ellipse-3'].map((el, i) => (
           <span aria-hidden="true" key={i} className={`absolute pointer-events-none z-1 ${el}`} />
         ))}
-        <Box className="max-w-[1170px] mx-auto relative z-20 banner-section">
-          <Header />
+        <Box className="max-w-[1170px] mx-auto relative z-20 banner-section pt-[80px]">
+          <Box className="fixed top-0 left-0 w-full z-50 h-[101px] bg-[rgba(1,4,9,0.30)] backdrop-blur-[15.1px]">
+            <Box className="max-w-[1170px] mx-auto px-4 md:px-6 lg:px-0">
+              <Header />
+            </Box>
+          </Box>
           <h1 className="text-[#00B3DC] font-semibold not-italic text-[74px] leading-[0.89] pt-[81px] max-w-[441px] mb-[26px]">
             Підключити оптичний інтернет
             <span className="text-white block">GPON від Укртелеком</span>
@@ -54,7 +58,7 @@ export const Banner = () => {
           <Box className="advantages-block flex w-full justify-between mt-[129px]">
             {advantages.map((adv, idx) => (
               <Box key={idx} className="flex items-center">
-                <img src={adv.src} alt={adv.alt} className="h-[48px]" loading="lazy" />
+                <img src={adv.src} alt={adv.alt} className="h-[48px] w-auto" loading="lazy" height={48} />
                 {adv.text && (
                   <span className="ml-[10px] text-white text-[19px] font-medium not-italic leading-[0.97]">{adv.text}</span>
                 )}

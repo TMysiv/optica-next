@@ -354,7 +354,7 @@ export const Form = () => {
                 <Box className="flex flex-col items-center gap-5 mt-5">
                   <h2 className="text-5xl font-extrabold text-cyan-500 text-center">Ваша заявка прийнята!</h2>
                   <p className="text-white text-xl text-center">Наш менеджер зателефонує в найближчий час</p>
-                  <img src="/images/logo.svg" alt="Укртелеком — оптичний інтернет провайдер" />
+                  <img src="/images/logo.svg" alt="Укртелеком — оптичний інтернет провайдер" width={160} height={40} loading="lazy" />
                 </Box>
               }
             />
