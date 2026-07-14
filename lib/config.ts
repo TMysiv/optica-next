@@ -1,6 +1,6 @@
 export const config = {
   api: process.env.NEXT_PUBLIC_API,
-  domain: process.env.NEXT_PUBLIC_SITE,
+  domain: process.env.NEXT_PUBLIC_SITE ?? 'https://yourdomain.com',
   phone: process.env.NEXT_PUBLIC_PHONE,
   email: process.env.NEXT_PUBLIC_EMAIL,
   googleClientEmail: process.env.GOOGLE_CLIENT_EMAIL,

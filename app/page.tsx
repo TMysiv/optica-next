@@ -4,15 +4,14 @@ import { Equipments } from '@/components/Equipments/Equipments';
 import { Reviews } from '@/components/Reviews/Reviews';
 import { Form } from '@/components/Form/Form';
 import { Footer } from '@/components/Footer/Footer';
-
-const SITE_URL = process.env.NEXT_PUBLIC_SITE ?? 'https://yourdomain.com';
+import { config } from '@/lib/config';
 
 const schemaOrg = {
   '@context': 'https://schema.org',
   '@type': ['Organization', 'TelecommunicationsService'],
   name: 'Укртелеком',
-  url: `${SITE_URL}/`,
-  logo: `${SITE_URL}/images/logo.svg`,
+  url: `${config.domain}/`,
+  logo: `${config.domain}/images/logo.svg`,
   description: 'Підключення оптичного інтернету GPON до 1 Гбіт/с по всій Україні. Енергонезалежна мережа до 96 годин.',
   areaServed: { '@type': 'Country', name: 'Ukraine' },
   hasOfferCatalog: {

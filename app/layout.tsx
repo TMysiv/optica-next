@@ -2,23 +2,22 @@ import type { Metadata } from 'next';
 import { AppRouterCacheProvider } from '@mui/material-nextjs/v15-appRouter';
 import { ThemeProvider } from '@mui/material/styles';
 import theme from '@/lib/theme';
+import { config } from '@/lib/config';
 import './globals.css';
 
-const SITE_URL = process.env.NEXT_PUBLIC_SITE ?? 'https://yourdomain.com';
-
 export const metadata: Metadata = {
-  metadataBase: new URL(SITE_URL),
+  metadataBase: new URL(config.domain),
   title: 'Підключити інтернет до 1 Гбіт/с | Укртелеком GPON',
   description:
     'Підключи оптичний інтернет GPON від Укртелеком — до 1 Гбіт/с, енергонезалежний до 96 годин. Тариф від 99 грн/міс. Залиш заявку онлайн!',
   keywords: 'підключити інтернет, інтернет провайдер Україна, GPON оптика, Укртелеком інтернет, 1 гбіт інтернет',
   alternates: {
-    canonical: SITE_URL,
+    canonical: config.domain,
   },
   robots: { index: true, follow: true },
   openGraph: {
     type: 'website',
-    url: SITE_URL,
+    url: config.domain,
     siteName: 'Укртелеком',
     locale: 'uk_UA',
     title: 'Підключити інтернет до 1 Гбіт/с | Укртелеком GPON',

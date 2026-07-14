@@ -1,16 +1,15 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { getAllPosts } from '@/lib/posts';
-
-const SITE_URL = process.env.NEXT_PUBLIC_SITE ?? 'https://yourdomain.com';
+import { config } from '@/lib/config';
 
 export const metadata: Metadata = {
   title: 'Блог Укртелеком — статті про GPON інтернет і технології',
   description: 'Корисні статті про GPON інтернет, налаштування роутерів та вибір тарифу від Укртелеком. Підключення оптичного інтернету по всій Україні.',
-  alternates: { canonical: `${SITE_URL}/blog` },
+  alternates: { canonical: `${config.domain}/blog` },
   openGraph: {
     type: 'website',
-    url: `${SITE_URL}/blog`,
+    url: `${config.domain}/blog`,
     title: 'Блог Укртелеком — статті про GPON інтернет і технології',
     description: 'Корисні статті про GPON інтернет, налаштування роутерів та вибір тарифу від Укртелеком. Підключення оптичного інтернету по всій Україні.',
     images: [{ url: '/images/desktop-banner.webp', width: 1200, height: 630, alt: 'Блог Укртелеком' }],
@@ -31,8 +30,28 @@ const CATEGORY_COLORS: Record<string, string> = {
 export default function BlogPage() {
   const posts = getAllPosts();
 
+  const breadcrumbSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Головна', item: config.domain },
+      { '@type': 'ListItem', position: 2, name: 'Блог', item: `${config.domain}/blog` },
+    ],
+  };
+
+  const collectionSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'CollectionPage',
+    name: 'Блог про інтернет — Укртелеком',
+    description: 'Корисні статті про GPON інтернет, налаштування роутерів та вибір тарифу від Укртелеком.',
+    url: `${config.domain}/blog`,
+    publisher: { '@type': 'Organization', name: 'Укртелеком', url: config.domain },
+  };
+
   return (
     <main className="min-h-screen" style={{ background: '#233955' }}>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(collectionSchema) }} />
       {/* Хедер блогу */}
       <div className="max-w-[1170px] mx-auto px-4 pt-[60px] pb-[48px]">
         <Link

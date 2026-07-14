@@ -110,9 +110,9 @@ export const Footer = () => {
       </Box>
 
       <Box className="max-w-[1170px] mx-auto px-4 py-[32px]" sx={{ borderTop: '1px solid rgba(255,255,255,0.06)' }}>
-        <h2 className="text-white/30 text-[13px] font-semibold mb-[10px]">
+        <p className="text-white/30 text-[13px] font-semibold mb-[10px]">
           Підключити оптичний інтернет GPON від Укртелеком по всій Україні
-        </h2>
+        </p>
         <p className="text-white/25 text-[12px] leading-[1.7] m-0">
           Укртелеком надає послуги підключення оптичного інтернету GPON зі швидкістю до 1 Гбіт/с у Києві, Харкові, Одесі, Дніпрі, Запоріжжі, Львові та інших містах України. Технологія GPON забезпечує стабільний інтернет з енергонезалежністю мережі до 96 годин. Тарифи від 99 грн/міс з фіксованою ціною на 2 роки. <Link href="/blog" className="text-white/40 hover:text-white/70 transition-colors">Читати більше про GPON</Link>.
         </p>
