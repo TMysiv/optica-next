@@ -30,7 +30,7 @@ export const Header = () => {
       </Link>
 
       {!isMob && (
-        <Box className="flex items-center gap-[32px]">
+        <Box component="nav" aria-label="Головна навігація" className="flex items-center gap-[32px]">
           {scrollItems.map((item) => (
             <a
               key={item.id}

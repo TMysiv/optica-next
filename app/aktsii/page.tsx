@@ -1,18 +1,17 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
-
-const SITE_URL = process.env.NEXT_PUBLIC_SITE ?? 'https://yourdomain.com';
+import { config } from '@/lib/config';
 
 export const metadata: Metadata = {
   title: 'Акції Укртелеком — Приведи друга і отримай 400 грн',
   description: 'Актуальні акції від Укртелеком. Приведи друга — отримай 400 грн бонусу після його підключення до GPON інтернету.',
-  alternates: { canonical: `${SITE_URL}/aktsii` },
+  alternates: { canonical: `${config.domain}/aktsii` },
   openGraph: {
     type: 'website',
-    url: `${SITE_URL}/aktsii`,
+    url: `${config.domain}/aktsii`,
     title: 'Акції Укртелеком — Приведи друга і отримай 400 грн',
     description: 'Приведи друга і отримай 400 грн після його підключення до GPON інтернету від Укртелеком.',
-    images: [{ url: '/images/desktop-banner.webp', width: 1200, height: 630 }],
+    images: [{ url: '/images/desktop-banner.webp', width: 1200, height: 630, alt: 'Акції Укртелеком — Приведи друга і отримай 400 грн' }],
   },
   twitter: {
     card: 'summary_large_image',
@@ -20,6 +19,25 @@ export const metadata: Metadata = {
     description: 'Приведи друга і отримай 400 грн після його підключення до GPON інтернету від Укртелеком.',
     images: ['/images/desktop-banner.webp'],
   },
+};
+
+const breadcrumbSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Головна', item: config.domain },
+    { '@type': 'ListItem', position: 2, name: 'Акції', item: `${config.domain}/aktsii` },
+  ],
+};
+
+const promotionSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'SpecialAnnouncement',
+  name: 'Акція «Приведи друга» від Укртелеком',
+  text: 'Порекомендуй GPON інтернет від Укртелеком другу. Після його підключення отримай 400 грн бонусу на особистий рахунок. Без обмежень по кількості друзів.',
+  category: 'https://www.wikidata.org/wiki/Q12004',
+  datePosted: '2024-01-01',
+  announcementLocation: { '@type': 'Organization', name: 'Укртелеком', url: config.domain },
 };
 
 const steps = [
@@ -43,6 +61,8 @@ const steps = [
 export default function AktsiiPage() {
   return (
     <main className="min-h-screen" style={{ background: '#233955' }}>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(promotionSchema) }} />
 
       {/* Хедер сторінки */}
       <div className="max-w-[1170px] mx-auto px-4 pt-[60px] pb-[48px]">

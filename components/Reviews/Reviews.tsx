@@ -7,13 +7,13 @@ const reviewsSchema = {
   '@context': 'https://schema.org',
   '@type': 'Organization',
   name: 'Укртелеком',
-  aggregateRating: { '@type': 'AggregateRating', ratingValue: '4.8', reviewCount: '1243', bestRating: '5' },
+  aggregateRating: { '@type': 'AggregateRating', ratingValue: 4.8, reviewCount: 1243, bestRating: 5 },
   review: reviews.map((r) => ({
     '@type': 'Review',
     author: { '@type': 'Person', name: r.name },
-    reviewRating: { '@type': 'Rating', ratingValue: r.rating },
+    reviewRating: { '@type': 'Rating', ratingValue: r.rating, bestRating: 5 },
     reviewBody: r.text,
-    datePublished: r.date,
+    datePublished: r.isoDate,
   })),
 };
 
