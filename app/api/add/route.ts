@@ -42,8 +42,9 @@ export async function POST(req: NextRequest) {
       config.telegramChat ?? '',
       `Додана нова заявка:
   Область: ${offer.region}
-  Н.п.: ${offer.city}
-  К.т.: ${offer.phone.replace(/\D/g, '')}
+  Населений пункт: ${offer.city}
+  Вулиця: ${offer.street}
+  Телефон: ${offer.phone.replace(/\D/g, '')}
   ПІБ: ${offer.username}`
     );
 

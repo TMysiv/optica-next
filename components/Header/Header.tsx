@@ -88,11 +88,9 @@ export const Header = () => {
                 />
               </svg>
             </Box>
-            {!isMob && (
-              <span className="text-[#00B3DC] text-[16px] font-semibold leading-tight group-hover:text-white transition-colors duration-200">
-                {config.phone}
-              </span>
-            )}
+            <span className="text-[#00B3DC] text-[16px] font-semibold leading-tight group-hover:text-white transition-colors duration-200">
+              {config.phone}
+            </span>
           </a>
 
           {isMob && (
