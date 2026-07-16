@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import { AppRouterCacheProvider } from '@mui/material-nextjs/v15-appRouter';
 import { ThemeProvider } from '@mui/material/styles';
+import { GoogleTagManager } from '@next/third-parties/google';
 import theme from '@/lib/theme';
 import { config } from '@/lib/config';
 import './globals.css';
@@ -36,7 +37,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="uk">
       <body>
-        <AppRouterCacheProvider>
+      {config.gtmId && <GoogleTagManager gtmId={config.gtmId} />}
+      <AppRouterCacheProvider>
           <ThemeProvider theme={theme}>
             {children}
           </ThemeProvider>

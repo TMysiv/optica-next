@@ -3,6 +3,7 @@ import {
   Box, Grid, TextField, MenuItem, Checkbox,
   useTheme, useMediaQuery, Paper, IconButton, Autocomplete,
 } from '@mui/material';
+import { sendGTMEvent } from '@next/third-parties/google';
 import { beautifyErrors, houseTypes, regions, services, speeds } from '@/lib/helpers';
 import { ChangeEvent, useEffect, useMemo, useState } from 'react';
 import { CustomButton } from '@/components/Custom/CustomButton';
@@ -66,6 +67,7 @@ export const Form = () => {
       setOpenModal(true);
       setOffer(initialOffer);
       await createOffer({ ...validateOffer, note: validateOffer.note?.replace(/\s+/g, ' ') });
+      sendGTMEvent({ event: 'form_submit_success' });
     } catch (errors) {
       setValidationErrors(beautifyErrors(errors));
     }
