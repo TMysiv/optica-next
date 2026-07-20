@@ -52,7 +52,7 @@ export default function BlogPage() {
     <main className="min-h-screen" style={{ background: '#233955' }}>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(collectionSchema) }} />
-      {/* Хедер блогу */}
+
       <div className="max-w-[1170px] mx-auto px-4 pt-[60px] pb-[48px]">
         <Link
           href="/"
@@ -72,7 +72,6 @@ export default function BlogPage() {
         </p>
       </div>
 
-      {/* Список статей */}
       <div className="max-w-[1170px] mx-auto px-4 pb-[80px]">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-[24px]">
           {posts.map((post) => (
@@ -83,24 +82,20 @@ export default function BlogPage() {
             >
               <article className="blog-card rounded-[20px] p-[28px] flex flex-col gap-[16px] h-full transition-all duration-300 cursor-pointer">
 
-                {/* Категорія */}
                 <span
                   className={`text-[11px] font-semibold uppercase tracking-[1.5px] px-[10px] py-[4px] rounded-full border w-fit ${CATEGORY_COLORS[post.category] ?? 'bg-white/10 text-white/60 border-white/20'}`}
                 >
                   {post.category}
                 </span>
 
-                {/* Заголовок */}
                 <h2 className="text-white text-[18px] font-bold leading-[1.35] m-0 flex-1 group-hover:text-[#00B3DC] transition-colors duration-200">
                   {post.title}
                 </h2>
 
-                {/* Опис */}
                 <p className="text-white/55 text-[14px] leading-[1.6] m-0 line-clamp-3">
                   {post.description}
                 </p>
 
-                {/* Мета */}
                 <div className="flex items-center justify-between pt-[12px]" style={{ borderTop: '1px solid rgba(255,255,255,0.08)' }}>
                   <span className="text-white/35 text-[12px]">
                     {new Date(post.date).toLocaleDateString('uk-UA', { day: 'numeric', month: 'long', year: 'numeric' })}
@@ -119,7 +114,6 @@ export default function BlogPage() {
         </div>
       </div>
 
-      {/* CTA */}
       <div
         className="py-[60px]"
         style={{ borderTop: '1px solid rgba(255,255,255,0.06)', background: 'rgba(0,0,0,0.15)' }}

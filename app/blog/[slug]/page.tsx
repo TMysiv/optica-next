@@ -9,12 +9,10 @@ interface Props {
   params: Promise<{ slug: string }>;
 }
 
-// Генеруємо всі сторінки статично при білді
 export async function generateStaticParams() {
   return getAllPosts().map((post) => ({ slug: post.slug }));
 }
 
-// Динамічні meta-теги для кожної статті
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
   const post = getPostBySlug(slug);
@@ -89,7 +87,6 @@ export default async function BlogPostPage({ params }: Props) {
 
       <div className="max-w-[800px] mx-auto px-4 pt-[60px] pb-[80px]">
 
-        {/* Назад */}
         <Link
           href="/blog"
           className="inline-flex items-center gap-2 text-white/50 hover:text-white text-[14px] no-underline transition-colors mb-[40px]"
@@ -100,7 +97,6 @@ export default async function BlogPostPage({ params }: Props) {
           Всі статті
         </Link>
 
-        {/* Мета */}
         <div className="flex items-center gap-[12px] flex-wrap mb-[24px]">
           <span className={`text-[11px] font-semibold uppercase tracking-[1.5px] px-[10px] py-[4px] rounded-full border ${CATEGORY_COLORS[post.category] ?? 'bg-white/10 text-white/60 border-white/20'}`}>
             {post.category}
@@ -117,18 +113,15 @@ export default async function BlogPostPage({ params }: Props) {
           </span>
         </div>
 
-        {/* Заголовок */}
         <h1 className="text-white text-[32px] md:text-[44px] font-bold leading-[1.2] mb-[32px]">
           {post.title}
         </h1>
 
-        {/* Контент статті */}
         <div
           className="blog-content"
           dangerouslySetInnerHTML={{ __html: htmlContent }}
         />
 
-        {/* CTA блок */}
         <div
           className="mt-[60px] rounded-[20px] p-[32px] text-center"
           style={{
@@ -150,7 +143,6 @@ export default async function BlogPostPage({ params }: Props) {
           </Link>
         </div>
 
-        {/* Інші статті */}
         {allPosts.length > 0 && (
           <div className="mt-[60px]">
             <h2 className="text-white text-[22px] font-bold mb-[24px]">Читайте також</h2>

@@ -48,7 +48,7 @@ const steps = [
   },
   {
     number: '02',
-    title: 'Друг підключується',
+    title: 'Друг підключається',
     description: 'Друг залишає заявку та підключає будь-який тариф GPON інтернету від Укртелеком.',
   },
   {
@@ -64,7 +64,6 @@ export default function AktsiiPage() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(promotionSchema) }} />
 
-      {/* Хедер сторінки */}
       <div className="max-w-[1170px] mx-auto px-4 pt-[60px] pb-[48px]">
         <Link
           href="/"
@@ -87,15 +86,12 @@ export default function AktsiiPage() {
         </p>
       </div>
 
-      {/* Список акцій */}
       <div className="max-w-[1170px] mx-auto px-4 pb-[80px]">
 
-        {/* Акція: Приведи друга */}
         <article
           className="rounded-[24px] overflow-hidden"
           style={{ border: '1px solid rgba(0,179,220,0.25)', background: 'linear-gradient(135deg, rgba(0,179,220,0.08) 0%, rgba(0,179,220,0.02) 100%)' }}
         >
-          {/* Шапка акції */}
           <div className="p-[40px_40px_32px] md:p-[48px_56px_40px]">
             <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-[24px]">
               <div className="max-w-[600px]">
@@ -124,7 +120,6 @@ export default function AktsiiPage() {
             </div>
           </div>
 
-          {/* Як це працює */}
           <div
             className="px-[40px] py-[36px] md:px-[56px]"
             style={{ borderTop: '1px solid rgba(255,255,255,0.07)' }}
@@ -150,7 +145,6 @@ export default function AktsiiPage() {
             </div>
           </div>
 
-          {/* Умови та CTA */}
           <div
             className="px-[40px] py-[32px] md:px-[56px] flex flex-col md:flex-row md:items-center md:justify-between gap-[20px]"
             style={{ borderTop: '1px solid rgba(255,255,255,0.07)' }}
@@ -170,7 +164,6 @@ export default function AktsiiPage() {
 
       </div>
 
-      {/* CTA */}
       <div
         className="py-[60px]"
         style={{ borderTop: '1px solid rgba(255,255,255,0.06)', background: 'rgba(0,0,0,0.15)' }}

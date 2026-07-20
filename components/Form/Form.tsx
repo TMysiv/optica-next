@@ -26,9 +26,19 @@ const formSchema = {
 };
 
 const initialOffer: Offer = {
-  service: 'Інтернет', isMash: false, countMash: 1, speed: '1000 МБіт/с',
-  typeOfHouse: 'В квартиру', region: '', city: '', street: '',
-  house: '', flat: '', username: '', phone: '', note: '',
+  service: 'Інтернет',
+  isMash: false,
+  countMash: 1,
+  speed: '1000 МБіт/с',
+  typeOfHouse: 'В квартиру',
+  region: '',
+  city: '',
+  street: '',
+  house: '',
+  flat: '',
+  username: '',
+  phone: '',
+  note: '',
 };
 
 const createMenuItemArray = (items: { id: number; value: string }[]) =>
@@ -54,7 +64,9 @@ export const Form = () => {
 
   useEffect(() => {
     const handler = (e: any) => {
-      if (e?.detail) setOffer((prev) => ({ ...prev, [e.detail.name]: e.detail.value }));
+      if (e?.detail) {
+        setOffer((prev) => ({ ...prev, [e.detail.name]: e.detail.value }));
+      }
     };
     window.addEventListener('scrollToForm', handler);
     return () => window.removeEventListener('scrollToForm', handler);
@@ -78,7 +90,18 @@ export const Form = () => {
     [offer.region]
   );
 
-  const textFieldProps = { variant: 'standard' as const, size: 'small' as const, margin: 'none' as const, className: 'text-field', slotProps: { inputLabel: { shrink: true } } };
+  const textFieldProps = {
+    variant: 'standard' as const,
+    size: 'small' as const,
+    margin: 'none' as const,
+    className: 'text-field',
+    slotProps: {
+      inputLabel:
+        {
+          shrink: true
+        }
+    }
+  };
 
   return (
     <>
