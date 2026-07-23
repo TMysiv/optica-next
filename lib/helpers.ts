@@ -105,8 +105,3 @@ export const socials = [
   { label: 'Instagram', href: 'https://www.instagram.com/ukrtelecom_official' },
   { label: 'YouTube', href: 'https://www.youtube.com/@theukrtelecom' },
 ];
-
-export const legalLinks = [
-  { label: 'Публічна оферта', href: 'http://google.com' },
-  { label: 'Політика конфіденційності', href: 'http://google.com' },
-];

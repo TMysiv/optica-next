@@ -1,7 +1,7 @@
 'use client';
 import { Box, useMediaQuery, useTheme } from '@mui/material';
 import { Logo } from '@/components/Logo/Logo';
-import { footerNavItems, socials, legalLinks } from '@/lib/helpers';
+import { footerNavItems, socials } from '@/lib/helpers';
 import { SocialLink } from '@/components/SocialLink/SocialLink';
 import { EmailLink } from '@/components/EmailLink/EmailLink';
 import { config } from '@/lib/config';
@@ -16,7 +16,9 @@ export const Footer = () => {
   const isMob = useMediaQuery(theme.breakpoints.down(765));
 
   const scrollTo = (id: string) => {
-    if (id) document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
+    if (id) {
+      document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
+    }
   };
 
   const NavButton = ({ label, id, href }: { label: string; id: string; href?: string }) => {
