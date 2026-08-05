@@ -89,7 +89,7 @@ export default function HomePage() {
         <Equipments />
         <Reviews />
         <h2 className="form-t max-w-[440px] text-white text-center text-[40px] font-bold leading-[117.5%] mt-[133px] mb-[51px] mx-auto uppercase">
-          Підключіть інтернет зараз
+          Залиш заявку на підключення інтернету
         </h2>
         <Form />
         <Footer />
