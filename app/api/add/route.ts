@@ -13,7 +13,7 @@ export async function POST(req: NextRequest) {
 
     const result = validateOffer(body);
     if ('errors' in result) {
-      logger.warn('validation_failed', { errors: result.errors });
+      await logger.warn('validation_failed', { errors: result.errors });
       return NextResponse.json({ errors: result.errors }, { status: 400 });
     }
 
@@ -52,11 +52,11 @@ export async function POST(req: NextRequest) {
   ПІБ: ${offer.username}`
     );
 
-    logger.info('lead_saved', { region: offer.region, city: offer.city, service: offer.service, duration_ms: Date.now() - start });
+    await logger.info('lead_saved', { region: offer.region, city: offer.city, service: offer.service, duration_ms: Date.now() - start });
 
     return NextResponse.json({ message: 'Заявку успішно додано' }, { status: 201 });
   } catch (error) {
-    logger.error('api_error', { error: String(error), duration_ms: Date.now() - start });
+    await logger.error('api_error', { error: String(error), duration_ms: Date.now() - start });
     return NextResponse.json({ message: 'Внутрішня помилка сервера' }, { status: 500 });
   }
 }

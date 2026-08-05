@@ -1,6 +1,6 @@
 import { config } from '@/lib/config';
 
-function send(level: 'info' | 'warn' | 'error', event: string, data?: Record<string, unknown>) {
+async function send(level: 'info' | 'warn' | 'error', event: string, data?: Record<string, unknown>) {
   const entry = { _time: new Date().toISOString(), level, event, ...data };
 
   console[level === 'info' ? 'log' : level](JSON.stringify(entry));
@@ -9,7 +9,7 @@ function send(level: 'info' | 'warn' | 'error', event: string, data?: Record<str
     return;
   }
 
-  fetch(`https://api.axiom.co/v1/datasets/${config.axiomDataset}/ingest`, {
+  await fetch(`https://api.axiom.co/v1/datasets/${config.axiomDataset}/ingest`, {
     method: 'POST',
     headers: {
       Authorization: `Bearer ${config.axiomToken}`,
