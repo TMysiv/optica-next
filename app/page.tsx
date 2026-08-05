@@ -2,6 +2,7 @@ import { Banner } from '@/components/Banner/Banner';
 import { Tariffs } from '@/components/Tariffs/Tariffs';
 import { Equipments } from '@/components/Equipments/Equipments';
 import { Reviews } from '@/components/Reviews/Reviews';
+import { FAQ } from '@/components/FAQ/FAQ';
 import { Form } from '@/components/Form/Form';
 import { Footer } from '@/components/Footer/Footer';
 import { config } from '@/lib/config';
@@ -88,6 +89,7 @@ export default function HomePage() {
         </h2>
         <Equipments />
         <Reviews />
+        <FAQ />
         <h2 className="form-t max-w-[440px] text-white text-center text-[40px] font-bold leading-[117.5%] mt-[133px] mb-[51px] mx-auto uppercase">
           Залиш заявку на підключення інтернету
         </h2>
