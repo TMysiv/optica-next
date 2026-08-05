@@ -10,4 +10,6 @@ export const config = {
   googleSheetId: process.env.GOOGLE_SHEET_ID,
   telegramToken: process.env.TELEGRAM_TOKEN,
   telegramChat: process.env.TELEGRAM_CHAT,
+  axiomToken: process.env.AXIOM_TOKEN,
+  axiomDataset: process.env.AXIOM_DATASET ?? 'optica-ukrtelecom',
 };
