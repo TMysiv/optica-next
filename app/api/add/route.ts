@@ -5,11 +5,14 @@ import { validateOffer } from '@/lib/validate';
 import { config } from '@/lib/config';
 
 export async function POST(req: NextRequest) {
+  const start = Date.now();
+
   try {
     const body = await req.json();
 
     const result = validateOffer(body);
     if ('errors' in result) {
+      console.warn('[api/add] validation_failed', { errors: result.errors });
       return NextResponse.json({ errors: result.errors }, { status: 400 });
     }
 
@@ -48,10 +51,11 @@ export async function POST(req: NextRequest) {
   ПІБ: ${offer.username}`
     );
 
+    console.log('[api/add] lead_saved', { region: offer.region, city: offer.city, service: offer.service, duration_ms: Date.now() - start });
 
     return NextResponse.json({ message: 'Заявку успішно додано' }, { status: 201 });
   } catch (error) {
-    console.error('[POST /api/add]', error);
+    console.error('[api/add] error', { error: String(error), duration_ms: Date.now() - start });
     return NextResponse.json({ message: 'Внутрішня помилка сервера' }, { status: 500 });
   }
 }
