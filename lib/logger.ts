@@ -1,22 +1,33 @@
 import { config } from '@/lib/config';
 
-async function send(level: 'info' | 'warn' | 'error', event: string, data?: Record<string, unknown>) {
-  const entry = { _time: new Date().toISOString(), level, event, ...data };
-
-  console[level === 'info' ? 'log' : level](JSON.stringify(entry));
+export async function send(
+  level: 'info' | 'warn' | 'error',
+  message: string,
+  data?: Record<string, unknown>,
+) {
 
   if (!config.axiomToken) {
     return;
   }
 
-  await fetch(`https://api.axiom.co/v1/datasets/${config.axiomDataset}/ingest`, {
-    method: 'POST',
-    headers: {
-      Authorization: `Bearer ${config.axiomToken}`,
-      'Content-Type': 'application/json',
+  await fetch(
+    `https://eu-central-1.aws.edge.axiom.co/v1/ingest/${config.axiomDataset}`,
+    {
+      method: "POST",
+      headers: {
+        Authorization: `Bearer ${config.axiomToken}`,
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify([
+        {
+          level,
+          message,
+          timestamp: new Date().toISOString(),
+          ...data,
+        },
+      ]),
     },
-    body: JSON.stringify([entry]),
-  }).catch(() => {});
+  ).catch((err) => console.error(String(err)));
 }
 
 export const logger = {
