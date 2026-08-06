@@ -10,7 +10,6 @@ import { usePathname } from 'next/navigation';
 
 const scrollItems = [
   { label: 'Тарифи', id: 'tarrif-section' },
-  { label: 'Обладнання', id: 'equipment-section' },
   { label: 'Підключитись', id: 'form-section' },
 ];
 
@@ -45,7 +44,7 @@ export const Header = () => {
         </Link>
 
         {!isMob && (
-          <Box component="nav" aria-label="Головна навігація" className="flex items-center gap-[32px]">
+          <Box component="nav" aria-label="Головна навігація" className="flex items-center gap-[24px]">
             {scrollItems.map((item) => (
               <a
                 key={item.id}
@@ -67,6 +66,12 @@ export const Header = () => {
               className="text-white/70 hover:text-[#00B3DC] text-[15px] font-medium transition-colors duration-200 no-underline"
             >
               Блог
+            </Link>
+            <Link
+              href="/abonentam"
+              className="text-white/70 hover:text-[#00B3DC] text-[15px] font-medium transition-colors duration-200 no-underline"
+            >
+              <span className="hidden [@media(min-width:850px)]:inline">Діючим </span>Абонентам
             </Link>
           </Box>
         )}
@@ -124,7 +129,7 @@ export const Header = () => {
           }}
         >
           <div className="px-5 py-2 flex flex-col">
-            {scrollItems.slice(0, 2).map((item, i) => (
+            {scrollItems.map((item, i) => (
               <a
                 key={item.id}
                 href={isHome ? `#${item.id}` : `/#${item.id}`}
@@ -151,7 +156,14 @@ export const Header = () => {
             >
               Блог
             </Link>
-
+            <Link
+              href="/abonentam"
+              className="text-white/80 hover:text-[#00B3DC] text-[17px] font-medium py-[14px] no-underline transition-colors duration-200"
+              style={{ borderBottom: '1px solid rgba(255,255,255,0.07)' }}
+              onClick={() => setIsOpen(false)}
+            >
+              Діючим Абонентам
+            </Link>
             <a
               href={isHome ? '#form-section' : '/#form-section'}
               className="mt-4 mb-5 text-center py-[15px] rounded-[12px] bg-[#00B3DC] text-white text-[17px] font-semibold no-underline hover:bg-[#FFDC00] hover:text-black transition-all duration-200"
