@@ -1,6 +1,5 @@
 import { Banner } from '@/components/Banner/Banner';
 import { Tariffs } from '@/components/Tariffs/Tariffs';
-import { Equipments } from '@/components/Equipments/Equipments';
 import { Reviews } from '@/components/Reviews/Reviews';
 import { FAQ } from '@/components/FAQ/FAQ';
 import { Form } from '@/components/Form/Form';
@@ -80,20 +79,13 @@ export default function HomePage() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
       <div className="overflow-hidden">
         <Banner />
-        <Tariffs />
-        <h2 className="equipment-h text-white text-center text-[48px] font-semibold leading-[89%] mb-[49px]">
-          Обладнання для оптичного
-          <strong className="block mt-[14px] font-bold leading-[89%] uppercase bg-[linear-gradient(94deg,_#FFDC00_-0.62%,_#FFDC00_39.09%,_#FCD246_53.73%,_#FFDC00_74.6%)] bg-clip-text text-transparent">
-            інтернету GPON
-          </strong>
-        </h2>
-        <Equipments />
-        <Reviews />
-        <FAQ />
-        <h2 className="form-t max-w-[440px] text-white text-center text-[40px] font-bold leading-[117.5%] mt-[133px] mb-[51px] mx-auto uppercase">
+        <h2 className="form-t max-w-[440px] text-white text-center text-[40px] font-bold leading-[117.5%] mt-[50px] mb-[51px] mx-auto uppercase">
           Залиш заявку на підключення інтернету
         </h2>
         <Form />
+        <Tariffs />
+        <Reviews />
+        <FAQ />
         <Footer />
       </div>
     </>

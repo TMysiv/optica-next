@@ -92,11 +92,10 @@ export const stats = [
 ];
 
 export const footerNavItems = [
-  { label: 'Тарифи', id: 'tarrif-section' },
-  { label: 'Обладнання', id: 'equipment-section' },
-  { label: 'Відгуки', id: 'reviews-section' },
   { label: 'Підключитись', id: 'form-section' },
   { label: 'Акції', id: '', href: '/aktsii' },
+  { label: 'Тарифи', id: 'tarrif-section' },
+  { label: 'Відгуки', id: 'reviews-section' },
   { label: 'Блог', id: '', href: '/blog' },
 ];
 

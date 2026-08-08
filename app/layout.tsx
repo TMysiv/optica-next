@@ -4,6 +4,7 @@ import { ThemeProvider } from '@mui/material/styles';
 import { GoogleTagManager } from '@next/third-parties/google';
 import theme from '@/lib/theme';
 import { config } from '@/lib/config';
+import { ConsultationButton } from '@/components/ConsultationButton/ConsultationButton';
 import './globals.css';
 
 export const metadata: Metadata = {
@@ -41,6 +42,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <AppRouterCacheProvider>
           <ThemeProvider theme={theme}>
             {children}
+            <ConsultationButton />
           </ThemeProvider>
         </AppRouterCacheProvider>
       </body>

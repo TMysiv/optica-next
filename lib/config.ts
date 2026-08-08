@@ -7,6 +7,7 @@ export const config = {
   googleClientEmail: process.env.GOOGLE_CLIENT_EMAIL,
   googlePrivateKey: process.env.GOOGLE_PRIVATE_KEY,
   googleSheetActual: process.env.GOOGLE_SHEET_ACTUAL,
+  googleSheetConsult: process.env.GOOGLE_SHEET_CONSULT,
   googleSheetId: process.env.GOOGLE_SHEET_ID,
   telegramToken: process.env.TELEGRAM_TOKEN,
   telegramChat: process.env.TELEGRAM_CHAT,

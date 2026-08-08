@@ -9,7 +9,6 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 
 const scrollItems = [
-  { label: 'Тарифи', id: 'tarrif-section' },
   { label: 'Підключитись', id: 'form-section' },
 ];
 
@@ -61,6 +60,13 @@ export const Header = () => {
             >
               Акції
             </Link>
+            <a
+              href={isHome ? '#tarrif-section' : '/#tarrif-section'}
+              className="text-white/70 hover:text-white text-[15px] font-medium transition-colors duration-200 no-underline"
+              onClick={(e) => scrollToSection(e, 'tarrif-section')}
+            >
+              Тарифи
+            </a>
             <Link
               href="/blog"
               className="text-white/70 hover:text-[#00B3DC] text-[15px] font-medium transition-colors duration-200 no-underline"
@@ -82,18 +88,18 @@ export const Header = () => {
             className="flex items-center gap-[10px] no-underline group"
             aria-label="Зателефонувати до Укртелеком"
           >
-            <Box className="w-[38px] h-[38px] rounded-full bg-[#00B3DC]/20 border border-[#00B3DC]/40 flex items-center justify-center group-hover:bg-[#00B3DC]/40 transition-all duration-200">
+            <Box className="w-[34px] h-[34px] rounded-full bg-red-600/20 border border-red-500/40 flex items-center justify-center group-hover:bg-red-600/40 transition-all duration-200">
               <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
                 <path
                   d="M3.5 1.5C3.5 1.5 2 1.5 1.5 3C1 4.5 1.5 7.5 4.5 10.5C7.5 13.5 10.5 14 12 13.5C13.5 13 13.5 11.5 13.5 11.5L11 9L9.5 10.5C9.5 10.5 7.5 9.5 6 8C4.5 6.5 3.5 4.5 3.5 4.5L5 3L3.5 1.5Z"
-                  stroke="#00B3DC"
+                  stroke="#ef4444"
                   strokeWidth="1.2"
                   strokeLinecap="round"
                   strokeLinejoin="round"
                 />
               </svg>
             </Box>
-            <span className="text-[#00B3DC] text-[16px] font-semibold leading-tight group-hover:text-white transition-colors duration-200">
+            <span className="text-[#00B3DC] text-[20px] font-semibold leading-tight group-hover:text-white transition-colors duration-200">
               {config.phone}
             </span>
           </a>
@@ -148,6 +154,14 @@ export const Header = () => {
             >
               Акції
             </Link>
+            <a
+              href={isHome ? '#tarrif-section' : '/#tarrif-section'}
+              className="text-white/80 hover:text-white text-[17px] font-medium py-[14px] no-underline transition-colors duration-200"
+              style={{ borderBottom: '1px solid rgba(255,255,255,0.07)' }}
+              onClick={(e) => scrollToSection(e, 'tarrif-section')}
+            >
+              Тарифи
+            </a>
             <Link
               href="/blog"
               className="text-white/80 hover:text-[#00B3DC] text-[17px] font-medium py-[14px] no-underline transition-colors duration-200"
