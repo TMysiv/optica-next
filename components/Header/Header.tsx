@@ -88,7 +88,7 @@ export const Header = () => {
             className="flex items-center gap-[10px] no-underline group"
             aria-label="Зателефонувати до Укртелеком"
           >
-            <Box className="w-[34px] h-[34px] rounded-full bg-red-600/20 border border-red-500/40 flex items-center justify-center group-hover:bg-red-600/40 transition-all duration-200">
+            <Box className="w-[32px] h-[32px] rounded-full bg-red-600/20 border border-red-500/40 flex items-center justify-center group-hover:bg-red-600/40 transition-all duration-200">
               <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
                 <path
                   d="M3.5 1.5C3.5 1.5 2 1.5 1.5 3C1 4.5 1.5 7.5 4.5 10.5C7.5 13.5 10.5 14 12 13.5C13.5 13 13.5 11.5 13.5 11.5L11 9L9.5 10.5C9.5 10.5 7.5 9.5 6 8C4.5 6.5 3.5 4.5 3.5 4.5L5 3L3.5 1.5Z"

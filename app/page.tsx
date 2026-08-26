@@ -79,7 +79,7 @@ export default function HomePage() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
       <div className="overflow-hidden">
         <Banner />
-        <h2 className="form-t max-w-[440px] text-white text-center text-[40px] font-bold leading-[117.5%] mt-[50px] mb-[51px] mx-auto uppercase">
+        <h2 className="form-t max-w-[640px] text-white text-center text-[40px] font-bold leading-[117.5%] mt-[50px] mb-[51px] mx-auto uppercase">
           Залиш заявку на підключення інтернету
         </h2>
         <Form />
