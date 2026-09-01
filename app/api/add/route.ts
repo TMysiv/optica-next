@@ -52,7 +52,20 @@ export async function POST(req: NextRequest) {
   ПІБ: ${offer.username}`
     );
 
-    await logger.info('lead_saved', { region: offer.region, city: offer.city, service: offer.service, duration_ms: Date.now() - start });
+    await logger.info(
+      'lead_saved',
+      {
+        region: offer.region,
+        city: offer.city,
+        street: offer.street,
+        house: offer.house,
+        flat: offer.flat,
+        phone: offer.phone,
+        username: offer.username,
+        service: offer.service,
+        note: offer.note,
+        duration_ms: Date.now() - start,
+      });
 
     return NextResponse.json({ message: 'Заявку успішно додано' }, { status: 201 });
   } catch (error) {
