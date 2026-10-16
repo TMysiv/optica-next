@@ -12,7 +12,7 @@ const tariffs: Tariff[] = [
     name: '1 Гбіт/с',
     img: '/images/gpon.svg',
     price: '99',
-    extraPrice: '250',
+    extraPrice: '200',
     modalElement: <MarketingFTTx />,
     description: ['Енергонезалежна оптика до 96 годин', 'Знижка 50% на ігри в хмарі', 'Можливість оренди гігабітного роутера'],
   },
