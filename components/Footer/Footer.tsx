@@ -43,7 +43,7 @@ export const Footer = () => {
           <Box className="flex flex-col gap-0">
             <Box className="flex justify-center mb-[28px]"><Logo /></Box>
 
-            <a href={`tel:+${config.phone}`} className="no-underline flex flex-col items-center mb-[28px]" aria-label="Безкоштовний номер Укртелеком">
+            <a href={`tel:+38${config.phone}`} className="no-underline flex flex-col items-center mb-[28px]" aria-label="Безкоштовний номер Укртелеком">
               <Box className="w-full rounded-[16px] py-[18px] px-[20px] flex flex-col items-center gap-[4px]" sx={{ background: 'linear-gradient(135deg, rgba(0,179,220,0.15) 0%, rgba(0,179,220,0.05) 100%)', border: '1px solid rgba(0,179,220,0.3)' }}>
                 <span className="text-[#00B3DC] text-[26px] font-bold tracking-wide">{config.phone}</span>
               </Box>
@@ -94,7 +94,7 @@ export const Footer = () => {
             <Box>
               <FooterColTitle>Контакти</FooterColTitle>
               <Box className="flex flex-col gap-[12px]">
-                <a href={`tel:+${config.phone}`} className="no-underline group" aria-label="Безкоштовний номер Укртелеком">
+                <a href={`tel:+38${config.phone}`} className="no-underline group" aria-label="Безкоштовний номер Укртелеком">
                   <span className="text-[#00B3DC] text-[20px] font-bold group-hover:text-white transition-colors duration-200">{config.phone}</span>
                 </a>
                 <EmailLink className="text-white/50 hover:text-white text-[13px] transition-colors duration-200" email={config.email ?? ''} />

@@ -84,7 +84,7 @@ export const Header = () => {
 
         <div className="flex items-center gap-3">
           <a
-            href={`tel:+${config.phone}`}
+            href={`tel:+38${config.phone}`}
             className="flex items-center gap-[10px] no-underline group"
             aria-label="Зателефонувати до Укртелеком"
           >
