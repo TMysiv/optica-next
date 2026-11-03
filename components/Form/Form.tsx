@@ -100,7 +100,12 @@ export const Form = () => {
         {
           shrink: true
         }
-    }
+    },
+    sx: {
+      '& .MuiInputBase-input': { fontSize: { xs: 14, sm: 16 }, py: { xs: '2px', sm: '4px' } },
+      '& .MuiInputLabel-root': { fontSize: { xs: 13, sm: 16 } },
+      '& .MuiFormHelperText-root': { fontSize: { xs: 11, sm: 12 }, mt: { xs: 0.25, sm: 0.5 } },
+    },
   };
 
   return (
@@ -112,7 +117,7 @@ export const Form = () => {
           className={`border-4 border-cyan-500 px-14 py-10 rounded-bottom-left rounded-bottom-right ${isXs ? 'flex flex-col items-center' : ''} form-block`}
           id="form-section"
         >
-          <Grid container className="w-full" spacing={3}>
+          <Grid container className="w-full" spacing={isXs ? 1.5 : 3}>
             <Grid size={{ xs: 12 }}>
               <TextField
                 fullWidth
@@ -138,7 +143,7 @@ export const Form = () => {
                     size="small"
                     sx={{ paddingLeft: 0, color: '#fff', '&.Mui-checked': { color: '#fff' } }}
                   />
-                  <span className="text-white text-lg">Потрібен Гігабітний Wi-Fi роутер</span>
+                  <span className="text-white text-base sm:text-lg">Потрібен Гігабітний Wi-Fi роутер</span>
                 </label>
               </Grid>
               {offer.isMash && (
@@ -348,14 +353,13 @@ export const Form = () => {
             </Grid>
           </Grid>
 
-          <p role="note" className="agree-text max-w-[536px] mt-[18px] mb-[25px] text-[#D7D7D7] text-[11px] font-[350]">
-            * Тарифи та умови діють лише для нових абонентів при першому підключенні.<br />
+          <p role="note" className="agree-text max-w-[536px] mt-3 mb-4 sm:mt-[18px] sm:mb-[25px] text-[#D7D7D7] text-[10px] sm:text-[11px] font-[350]">            * Тарифи та умови діють лише для нових абонентів при першому підключенні.<br />
             Відправляючи Заявку, Ви даєте згоду АТ «Укртелеком» на обробку Ваших персональних даних відповідно до умов Закону України «Про захист персональних даних» **
           </p>
 
           <CustomButton
             text="ПІДКЛЮЧИТИ"
-            width={247}
+            width={isXs ? 200 : 247}
             className="bg-cyan-500 text-white hover:bg-yellow-850 hover:text-black text-xl mt-5"
             handleClick={handleSaveOffer}
           />
@@ -378,8 +382,8 @@ export const Form = () => {
               width={{ xs: '80%', md: '40%' }}
               html={
                 <Box className="flex flex-col items-center gap-5 mt-5">
-                  <h2 className="text-5xl font-extrabold text-cyan-500 text-center">Ваша заявка прийнята!</h2>
-                  <p className="text-white text-xl text-center">Наш менеджер зателефонує в найближчий час</p>
+                  <h2 className="text-2xl sm:text-5xl font-extrabold text-cyan-500 text-center">Ваша заявка прийнята!</h2>
+                  <p className="text-white text-base sm:text-xl text-center">Наш менеджер зателефонує в найближчий час</p>
                   <img src="/images/logo.svg" alt="Укртелеком — оптичний інтернет провайдер" width={160} height={40} loading="lazy" />
                 </Box>
               }
