@@ -28,7 +28,7 @@ const tariffs: Tariff[] = [
     id: 3,
     name: 'Максимальний дует',
     img: '/images/gpon-megogo.svg',
-    price: '550',
+    price: '600',
     modalElement: <MaxDualOffer />,
     description: ['Енергонезалежна оптика до 96 годин', 'Ліга Чемпіонів, Ліга Європи, Ліга націй та інші ТОПові спортивні події 2026 року!', 'Преміальний контент Disney, Paramount, Warner.Bros, HBO Max', "TV на п'яти пристроях"],
   },

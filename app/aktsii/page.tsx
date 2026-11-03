@@ -3,20 +3,20 @@ import Link from 'next/link';
 import { config } from '@/lib/config';
 
 export const metadata: Metadata = {
-  title: 'Акції Укртелеком — Приведи друга і отримай 400 грн',
-  description: 'Актуальні акції від Укртелеком. Приведи друга — отримай 400 грн бонусу після його підключення до GPON інтернету.',
+  title: 'Акції Укртелеком — Приведи друга і отримай 300 грн',
+  description: 'Актуальні акції від Укртелеком. Приведи друга — отримай 300 грн бонусу після його підключення до GPON інтернету.',
   alternates: { canonical: `${config.domain}/aktsii` },
   openGraph: {
     type: 'website',
     url: `${config.domain}/aktsii`,
-    title: 'Акції Укртелеком — Приведи друга і отримай 400 грн',
-    description: 'Приведи друга і отримай 400 грн після його підключення до GPON інтернету від Укртелеком.',
-    images: [{ url: '/images/desktop-banner.webp', width: 1200, height: 630, alt: 'Акції Укртелеком — Приведи друга і отримай 400 грн' }],
+    title: 'Акції Укртелеком — Приведи друга і отримай 300 грн',
+    description: 'Приведи друга і отримай 300 грн після його підключення до GPON інтернету від Укртелеком.',
+    images: [{ url: '/images/desktop-banner.webp', width: 1200, height: 630, alt: 'Акції Укртелеком — Приведи друга і отримай 300 грн' }],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Акції Укртелеком — Приведи друга і отримай 400 грн',
-    description: 'Приведи друга і отримай 400 грн після його підключення до GPON інтернету від Укртелеком.',
+    title: 'Акції Укртелеком — Приведи друга і отримай 300 грн',
+    description: 'Приведи друга і отримай 300 грн після його підключення до GPON інтернету від Укртелеком.',
     images: ['/images/desktop-banner.webp'],
   },
 };
@@ -34,7 +34,7 @@ const promotionSchema = {
   '@context': 'https://schema.org',
   '@type': 'SpecialAnnouncement',
   name: 'Акція «Приведи друга» від Укртелеком',
-  text: 'Порекомендуй GPON інтернет від Укртелеком другу. Після його підключення отримай 400 грн бонусу на особистий рахунок. Без обмежень по кількості друзів.',
+  text: 'Порекомендуй GPON інтернет від Укртелеком другу. Після його підключення отримай 300 грн бонусу на особистий рахунок. Без обмежень по кількості друзів.',
   category: 'https://www.wikidata.org/wiki/Q12004',
   datePosted: '2024-01-01',
   announcementLocation: { '@type': 'Organization', name: 'Укртелеком', url: config.domain },
@@ -53,8 +53,8 @@ const steps = [
   },
   {
     number: '03',
-    title: 'Отримай 400 грн',
-    description: 'Після успішного підключення друга ти отримуєш 400 грн бонусу на свій особистий рахунок.',
+    title: 'Отримай 300 грн',
+    description: 'Після успішного підключення друга ти отримуєш 300 грн бонусу на свій особистий рахунок.',
   },
 ];
 
@@ -103,7 +103,7 @@ export default function AktsiiPage() {
                 </h2>
                 <p className="text-white/65 text-[16px] leading-[1.7]">
                   Порекомендуй GPON інтернет від Укртелеком своєму другу, сусіду або родичу.
-                  Після того, як він підключиться — ти отримуєш <strong className="text-white">400 грн</strong> бонусу
+                  Після того, як він підключиться — ти отримуєш <strong className="text-white">300 грн</strong> бонусу
                   на свій особистий рахунок. Без обмежень по кількості друзів.
                 </p>
               </div>
@@ -114,7 +114,7 @@ export default function AktsiiPage() {
                 style={{ background: 'linear-gradient(135deg, rgba(255,220,0,0.15) 0%, rgba(255,220,0,0.05) 100%)', border: '1px solid rgba(255,220,0,0.3)' }}
               >
                 <p className="text-white/50 text-[13px] uppercase tracking-[1px] mb-[8px]">Твій бонус</p>
-                <p className="text-[#FFDC00] text-[56px] font-bold leading-none mb-[4px]">400</p>
+                <p className="text-[#FFDC00] text-[56px] font-bold leading-none mb-[4px]">300</p>
                 <p className="text-[#FFDC00] text-[20px] font-semibold">грн</p>
               </div>
             </div>
@@ -152,6 +152,7 @@ export default function AktsiiPage() {
             <p className="text-white/35 text-[13px] leading-[1.6] max-w-[500px]">
               Акція діє для фізичних осіб. Друг має бути новим абонентом Укртелеком і підключитися
               на будь-який тарифний план GPON інтернету. Бонус нараховується після активації послуги.
+              Акція діє тільки для абонентів, які були підключені через даний сайт.
             </p>
             <Link
               href="/#form-section"

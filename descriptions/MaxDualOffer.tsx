@@ -17,7 +17,7 @@ export const MaxDualOffer = (): ReactElement => {
 
       <Typography variant="body1" fontWeight={700} className="!mb-3">
         «Максимальний Дует» (Оптичний інтернет (FTTx) + «Максимальний бандл») —{' '}
-        550 грн/міс.:
+        600 грн/міс.:
       </Typography>
 
       <Typography variant="body1" className="!mb-3">
