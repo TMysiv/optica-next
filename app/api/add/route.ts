@@ -38,6 +38,7 @@ export async function POST(req: NextRequest) {
       offer.isMash ? 'Так' : 'Ні',
       offer.countMash && offer.isMash ? String(offer.countMash) : '',
       offer.note ?? '',
+      'Так',
     ];
 
     await writeSheet(sheetId, sheetName, [row]);
@@ -48,6 +49,8 @@ export async function POST(req: NextRequest) {
   Область: ${offer.region}
   Населений пункт: ${offer.city}
   Вулиця: ${offer.street}
+  Будинок: ${offer.house}
+  Квартира: ${offer.flat}
   Телефон: ${offer.phone.replace(/\D/g, '')}
   ПІБ: ${offer.username}`
     );
