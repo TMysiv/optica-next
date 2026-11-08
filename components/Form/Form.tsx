@@ -118,7 +118,7 @@ export const Form = () => {
           id="form-section"
         >
           <Grid container className="w-full" spacing={isXs ? 1.5 : 3}>
-            <Grid size={{ xs: 12 }}>
+            <Grid size={{ xs: 12, md: 6 }}>
               <TextField
                 fullWidth
                 select
@@ -133,73 +133,73 @@ export const Form = () => {
               </TextField>
             </Grid>
 
-            <Grid size={{ xs: 12 }} container>
-              <Grid size={{ xs: 12 }}>
-                <label className="flex items-center cursor-pointer">
-                  <Checkbox
-                    name="isMash"
-                    checked={offer.isMash}
-                    onChange={handleChange}
-                    size="small"
-                    sx={{ paddingLeft: 0, color: '#fff', '&.Mui-checked': { color: '#fff' } }}
-                  />
-                  <span className="text-white text-base sm:text-lg">Потрібен Гігабітний Wi-Fi роутер</span>
-                </label>
-              </Grid>
-              {offer.isMash && (
-                <Grid size={{ xs: 12, md: 6 }}>
-                  <Box display="flex" alignItems="center" gap={1}>
-                    <TextField
-                      value={offer.countMash}
-                      onChange={handleChange}
-                      name="countMash"
-                      inputMode="numeric"
-                      type="number"
-                      variant="standard"
-                      size="small"
-                      error={Boolean(validationErrors.countMash)}
-                      helperText={validationErrors.countMash}
-                      sx={{
-                        width: '48px',
-                        '& input': {
-                          textAlign: 'center',
-                          color: 'white',
-                          MozAppearance: 'textfield',
-                          '&::-webkit-outer-spin-button': { display: 'none' },
-                          '&::-webkit-inner-spin-button': { display: 'none' },
-                        },
-                        '& .MuiInput-underline:before': { borderBottomColor: 'white' },
-                        '& .MuiInput-underline:after': { borderBottomColor: 'white' },
-                      }}
-                    />
-                    {[
-                      { icon: <RemoveIcon fontSize="small" />, action: () => setOffer((p) => ({ ...p, countMash: Math.max(p.countMash - 1, 1) })) },
-                      { icon: <AddIcon fontSize="small" />, action: () => setOffer((p) => ({ ...p, countMash: p.countMash + 1 })) },
-                    ].map(({ icon, action }, i) => (
-                      <Paper key={i} elevation={0} sx={{ border: '1px solid white', borderRadius: '6px', display: 'flex', alignItems: 'center', background: 'inherit' }}>
-                        <IconButton size="small" sx={{ padding: '2px', width: 20, height: 20, color: 'white' }} onClick={action}>{icon}</IconButton>
-                      </Paper>
-                    ))}
-                  </Box>
-                </Grid>
-              )}
-            </Grid>
+            {/*<Grid size={{ xs: 12 }} container>*/}
+            {/*  <Grid size={{ xs: 12 }}>*/}
+            {/*    <label className="flex items-center cursor-pointer">*/}
+            {/*      <Checkbox*/}
+            {/*        name="isMash"*/}
+            {/*        checked={offer.isMash}*/}
+            {/*        onChange={handleChange}*/}
+            {/*        size="small"*/}
+            {/*        sx={{ paddingLeft: 0, color: '#fff', '&.Mui-checked': { color: '#fff' } }}*/}
+            {/*      />*/}
+            {/*      <span className="text-white text-base sm:text-lg">Потрібен Гігабітний Wi-Fi роутер</span>*/}
+            {/*    </label>*/}
+            {/*  </Grid>*/}
+            {/*  {offer.isMash && (*/}
+            {/*    <Grid size={{ xs: 12, md: 6 }}>*/}
+            {/*      <Box display="flex" alignItems="center" gap={1}>*/}
+            {/*        <TextField*/}
+            {/*          value={offer.countMash}*/}
+            {/*          onChange={handleChange}*/}
+            {/*          name="countMash"*/}
+            {/*          inputMode="numeric"*/}
+            {/*          type="number"*/}
+            {/*          variant="standard"*/}
+            {/*          size="small"*/}
+            {/*          error={Boolean(validationErrors.countMash)}*/}
+            {/*          helperText={validationErrors.countMash}*/}
+            {/*          sx={{*/}
+            {/*            width: '48px',*/}
+            {/*            '& input': {*/}
+            {/*              textAlign: 'center',*/}
+            {/*              color: 'white',*/}
+            {/*              MozAppearance: 'textfield',*/}
+            {/*              '&::-webkit-outer-spin-button': { display: 'none' },*/}
+            {/*              '&::-webkit-inner-spin-button': { display: 'none' },*/}
+            {/*            },*/}
+            {/*            '& .MuiInput-underline:before': { borderBottomColor: 'white' },*/}
+            {/*            '& .MuiInput-underline:after': { borderBottomColor: 'white' },*/}
+            {/*          }}*/}
+            {/*        />*/}
+            {/*        {[*/}
+            {/*          { icon: <RemoveIcon fontSize="small" />, action: () => setOffer((p) => ({ ...p, countMash: Math.max(p.countMash - 1, 1) })) },*/}
+            {/*          { icon: <AddIcon fontSize="small" />, action: () => setOffer((p) => ({ ...p, countMash: p.countMash + 1 })) },*/}
+            {/*        ].map(({ icon, action }, i) => (*/}
+            {/*          <Paper key={i} elevation={0} sx={{ border: '1px solid white', borderRadius: '6px', display: 'flex', alignItems: 'center', background: 'inherit' }}>*/}
+            {/*            <IconButton size="small" sx={{ padding: '2px', width: 20, height: 20, color: 'white' }} onClick={action}>{icon}</IconButton>*/}
+            {/*          </Paper>*/}
+            {/*        ))}*/}
+            {/*      </Box>*/}
+            {/*    </Grid>*/}
+            {/*  )}*/}
+            {/*</Grid>*/}
 
-            <Grid size={{ xs: 12, md: 6 }}>
-              <TextField
-                fullWidth
-                select
-                label="Швидкість"
-                name="speed"
-                value={offer.speed}
-                onChange={handleChange}
-                required {...textFieldProps}
-                error={Boolean(validationErrors.speed)}
-                helperText={validationErrors.speed}
-              >
-                {createMenuItemArray(speeds)}
-              </TextField>
-            </Grid>
+            {/*<Grid size={{ xs: 12, md: 6 }}>*/}
+            {/*  <TextField*/}
+            {/*    fullWidth*/}
+            {/*    select*/}
+            {/*    label="Швидкість"*/}
+            {/*    name="speed"*/}
+            {/*    value={offer.speed}*/}
+            {/*    onChange={handleChange}*/}
+            {/*    required {...textFieldProps}*/}
+            {/*    error={Boolean(validationErrors.speed)}*/}
+            {/*    helperText={validationErrors.speed}*/}
+            {/*  >*/}
+            {/*    {createMenuItemArray(speeds)}*/}
+            {/*  </TextField>*/}
+            {/*</Grid>*/}
 
             <Grid size={{ xs: 12, md: 6 }}>
               <TextField

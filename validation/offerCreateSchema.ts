@@ -7,12 +7,12 @@ export const offerCreateSchema = yup.object().shape({
     .oneOf(services.map(s => s.value), 'Обрано невірний сервіс')
     .required('Обов\'язкове поле'),
 
-  isMash: yup.boolean().defined(),
+  isMash: yup.boolean().notRequired(),
   countMash: yup.number().notRequired(),
   speed: yup
     .string()
     .oneOf(speeds.map(s => s.value), 'Обрана невірна швидкість')
-    .required('Обов\'язкове поле'),
+    .notRequired(),
   typeOfHouse: yup
     .string()
     .oneOf(houseTypes.map(h => h.value), 'Обрано невірний тип житла')
