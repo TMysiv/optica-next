@@ -7,6 +7,7 @@ import { Logo } from '@/components/Logo/Logo';
 import { config } from '@/lib/config';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
+import PhoneIcon from '@mui/icons-material/Phone';
 
 const scrollItems = [
   { label: 'Підключитись', id: 'form-section' },
@@ -85,23 +86,11 @@ export const Header = () => {
         <div className="flex items-center gap-3">
           <a
             href={`tel:+38${config.phone}`}
-            className="flex items-center gap-[10px] no-underline group"
-            aria-label="Зателефонувати до Укртелеком"
-          >
-            <Box className="w-[32px] h-[32px] rounded-full bg-red-600/20 border border-red-500/40 flex items-center justify-center group-hover:bg-red-600/40 transition-all duration-200">
-              <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-                <path
-                  d="M3.5 1.5C3.5 1.5 2 1.5 1.5 3C1 4.5 1.5 7.5 4.5 10.5C7.5 13.5 10.5 14 12 13.5C13.5 13 13.5 11.5 13.5 11.5L11 9L9.5 10.5C9.5 10.5 7.5 9.5 6 8C4.5 6.5 3.5 4.5 3.5 4.5L5 3L3.5 1.5Z"
-                  stroke="#ef4444"
-                  strokeWidth="1.2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                />
-              </svg>
-            </Box>
-            <span className="text-[#00B3DC] text-[20px] font-semibold leading-tight group-hover:text-white transition-colors duration-200">
-              {config.phone}
-            </span>
+            className="flex items-center gap-[8px] no-underline">
+            <PhoneIcon sx={{ fontSize: 22, color: '#00B3DC' }} />
+              <span className="bg-gradient-to-r from-[#00B3DC] to-[#7FE3FF] bg-clip-text text-[20px] font-bold text-transparent">
+                {config.phone}
+              </span>
           </a>
 
           {isMob && (

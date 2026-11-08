@@ -13,4 +13,6 @@ export const config = {
   telegramChat: process.env.TELEGRAM_CHAT,
   axiomToken: process.env.AXIOM_TOKEN,
   axiomDataset: process.env.AXIOM_DATASET ?? 'optica-ukrtelecom',
+  viberPhone: process.env.VIBER_PHONE,
+  telegramUsername: process.env.TELEGRAM_USERNAME,
 };

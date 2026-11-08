@@ -1,6 +1,7 @@
 import FacebookIcon from '@mui/icons-material/Facebook';
 import InstagramIcon from '@mui/icons-material/Instagram';
 import YouTubeIcon from '@mui/icons-material/YouTube';
+import TelegramIcon from '@mui/icons-material/Telegram';
 import { SvgIconProps } from '@mui/material';
 import { ElementType } from 'react';
 
@@ -8,6 +9,7 @@ const iconMap: Record<string, ElementType<SvgIconProps>> = {
   Facebook: FacebookIcon,
   Instagram: InstagramIcon,
   YouTube: YouTubeIcon,
+  Telegram: TelegramIcon,
 };
 
 export const SocialLink = ({ label, href, className }: { label: string; href: string; className: string }) => {

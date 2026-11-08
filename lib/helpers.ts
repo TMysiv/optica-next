@@ -100,6 +100,7 @@ export const footerNavItems = [
 ];
 
 export const socials = [
+  { label: 'Telegram', href: 'https://t.me/olena_gavrilenko' },
   { label: 'Facebook', href: 'https://www.facebook.com/ukrtelecom' },
   { label: 'Instagram', href: 'https://www.instagram.com/ukrtelecom_official' },
   { label: 'YouTube', href: 'https://www.youtube.com/@theukrtelecom' },
