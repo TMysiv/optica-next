@@ -4,6 +4,8 @@ import { Reviews } from '@/components/Reviews/Reviews';
 import { FAQ } from '@/components/FAQ/FAQ';
 import { Form } from '@/components/Form/Form';
 import { Footer } from '@/components/Footer/Footer';
+import { NoLightSection } from '@/components/NoLightSection/NoLightSection';
+import { HowToConnect } from '@/components/HowToConnect/HowToConnect';
 import { config } from '@/lib/config';
 
 const schemaOrg = {
@@ -84,7 +86,9 @@ export default function HomePage() {
         </h2>
         <Form />
         <Tariffs />
+        <NoLightSection />
         <Reviews />
+        <HowToConnect />
         <FAQ />
         <Footer />
       </div>

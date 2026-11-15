@@ -50,7 +50,7 @@ export const Reviews = () => {
         </Box>
 
         <Box className="text-center mb-[48px]">
-          <h2 className="text-white text-[36px] md:text-[42px] font-bold leading-tight mb-[12px]">
+          <h2 className="text-white text-[20px] md:text-[42px] font-bold leading-tight mb-[12px]">
             Що кажуть наші клієнти
           </h2>
           <Box className="flex items-center justify-center gap-[10px]">
@@ -74,17 +74,17 @@ export const Reviews = () => {
               }}
             >
               <Stars count={review.rating} />
-              <p className="text-white/80 text-[15px] leading-[1.6] m-0 flex-1">"{review.text}"</p>
+              <p className="text-white/80 text-[13px] md:text-[15px] leading-[1.6] m-0 flex-1">"{review.text}"</p>
               <Box className="flex items-center gap-[12px] pt-[8px] border-t border-white/10">
                 <Box
-                  className="w-[40px] h-[40px] rounded-full flex items-center justify-center text-white font-bold text-[16px] flex-shrink-0"
+                  className="w-[40px] h-[40px] rounded-full flex items-center justify-center text-white font-bold text-[14px] md:text-[16px] flex-shrink-0"
                   sx={{ background: 'linear-gradient(135deg, #00B3DC, #0077A0)' }}
                 >
                   {review.avatar}
                 </Box>
                 <Box>
-                  <span className="text-white font-semibold text-[14px] block">{review.name}</span>
-                  <span className="text-white/40 text-[12px]">{review.city} · {review.date}</span>
+                  <span className="text-white font-semibold text-[14px] md:text-[16px] block">{review.name}</span>
+                  <span className="text-white/40 text-[10px] md:text-[12px]">{review.city} · {review.date}</span>
                 </Box>
               </Box>
             </Box>

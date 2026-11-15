@@ -62,7 +62,7 @@ export const Tariffs = () => (
   <>
     <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(tariffsSchema) }} />
     <Box
-      className="tariff-section flex justify-between relative mx-auto my-[46px] mb-[152px] max-w-[1170px] w-full"
+      className="tariff-section flex justify-between relative mx-auto my-[46px] mb-[102px] max-w-[1170px] w-full"
       component="section"
       aria-label="Тарифи інтернету Укртелеком"
       id="tarrif-section"
