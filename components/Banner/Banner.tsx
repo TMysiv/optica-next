@@ -47,7 +47,7 @@ export const Banner = () => {
           </Box>
           <h1 className="text-[#00B3DC] font-semibold not-italic text-[74px] leading-[0.89] pt-[81px] max-w-[441px] mb-[26px]">
             Підключити оптичний інтернет
-            <span className="text-white block">GPON від Укртелеком</span>
+            <span className="text-white block"> GPON від Укртелеком</span>
           </h1>
           <CustomButton
             text="ПІДКЛЮЧИТИ"
