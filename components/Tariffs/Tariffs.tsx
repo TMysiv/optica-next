@@ -3,27 +3,17 @@ import { TariffsCard } from './TariffsCard';
 import { config } from '@/lib/config';
 import { tariffs } from '@/lib/tariffs';
 
+// List of links only: the full Product markup is on each tariff page (/taryfy/<slug>),
+// so the same tariffs aren't marked up as products on several pages
 const tariffsSchema = {
   '@context': 'https://schema.org',
   '@type': 'ItemList',
   name: 'Тарифи інтернету Укртелеком',
-  description: `Оптичний інтернет GPON від Укртелеком — тарифи від ${config.internetPrice} грн/міс`,
   itemListElement: tariffs.map((tariff, index) => ({
     '@type': 'ListItem',
     position: index + 1,
-    item: {
-      '@type': 'Product',
-      name: `Інтернет ${tariff.name} — Укртелеком GPON`,
-      description: tariff.description.join('. '),
-      image: `${config.domain}${tariff.img}`,
-      offers: {
-        '@type': 'Offer',
-        price: tariff.price,
-        priceCurrency: 'UAH',
-        availability: 'https://schema.org/InStock',
-        seller: { '@type': 'Organization', name: 'Укртелеком' },
-      },
-    },
+    name: `Тариф ${tariff.name}`,
+    url: `${config.domain}/taryfy/${tariff.slug}`,
   })),
 };
 

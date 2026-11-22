@@ -21,6 +21,7 @@ const breadcrumbSchema = {
   ],
 };
 
+// List of links only: the full Product markup is on each tariff page
 const tariffsSchema = {
   '@context': 'https://schema.org',
   '@type': 'ItemList',
@@ -28,19 +29,8 @@ const tariffsSchema = {
   itemListElement: tariffs.map((tariff, index) => ({
     '@type': 'ListItem',
     position: index + 1,
-    item: {
-      '@type': 'Product',
-      name: `${tariff.name} — Укртелеком`,
-      description: tariff.description.join('. '),
-      image: `${config.domain}${tariff.cover}`,
-      offers: {
-        '@type': 'Offer',
-        price: tariff.price,
-        priceCurrency: 'UAH',
-        availability: 'https://schema.org/InStock',
-        url: URL,
-      },
-    },
+    name: `Тариф ${tariff.name}`,
+    url: `${config.domain}/taryfy/${tariff.slug}`,
   })),
 };
 
