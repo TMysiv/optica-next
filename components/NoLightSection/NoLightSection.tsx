@@ -1,4 +1,5 @@
 'use client';
+import { useConnectModal } from '@/components/ConnectModal/ConnectModalProvider';
 import { Box, useMediaQuery, useTheme } from '@mui/material';
 import Link from 'next/link';
 import type { ReactNode } from 'react';
@@ -32,8 +33,10 @@ export const NoLightSection = () => {
   const theme = useTheme();
   const isMob = useMediaQuery(theme.breakpoints.down(765));
 
+  const { openConnect } = useConnectModal();
+
   const handleClick = () => {
-    document.getElementById('form-section')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    openConnect();
   };
 
   return (
@@ -98,10 +101,10 @@ export const NoLightSection = () => {
               підкаже.
             </p>
             <Link
-              href="/blog/internet-pid-chas-vidklyuchennya-svitla"
+              href="/internet-bez-svitla"
               className="w-fit text-white/80 hover:text-white underline underline-offset-4 text-[13px] md:text-[15px] transition-colors"
             >
-              Докладніше: інтернет під час відключення світла
+              Докладніше: інтернет без світла від Укртелеком
             </Link>
           </Box>
         </Box>

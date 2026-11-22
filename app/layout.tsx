@@ -8,32 +8,22 @@ import { ConsultationButton } from '@/components/ConsultationButton/Consultation
 import './globals.css';
 import TelegramButton from '@/components/TelegramButton/TelegramButtom';
 import ViberButton from '@/components/ViberButton/ViberButton';
+import { Header } from '@/components/Header/Header';
+import { Footer } from '@/components/Footer/Footer';
+import { ConnectModalProvider } from '@/components/ConnectModal/ConnectModalProvider';
 
 export const metadata: Metadata = {
   metadataBase: new URL(config.domain),
-  title: 'Підключити інтернет Укртелеком GPON | від 99 грн/міс',
-  description:
-    'Замовити підключення інтернету GPON від Укртелеком — до 1 Гбіт/с, енергонезалежний до 96 годин. Провести оптику від 99 грн/міс. Залиш заявку онлайн!',
-  keywords: 'підключити інтернет укртелеком, укртелеком gpon підключити, замовити інтернет укртелеком, заявка на підключення інтернету, провести інтернет укртелеком, інтернет без світла укртелеком, підключення інтернету укртелеком, укртелеком оптика підключити, інтернет провайдер Україна, GPON оптика, 1 гбіт інтернет',
-  alternates: {
-    canonical: config.domain,
-  },
+  title: `Підключити інтернет Укртелеком GPON | від ${config.internetPrice} грн/міс`,
+  description: `Підключення оптичного інтернету GPON від Укртелеком: до 1 Гбіт/с, працює до 96 годин без світла, від ${config.internetPrice} грн/міс.`,
   robots: { index: true, follow: true },
   openGraph: {
     type: 'website',
-    url: config.domain,
     siteName: 'Укртелеком',
     locale: 'uk_UA',
-    title: 'Підключити інтернет Укртелеком GPON | від 99 грн/міс',
-    description: 'Замовити підключення інтернету GPON від Укртелеком — до 1 Гбіт/с, енергонезалежний до 96 годин. Провести оптику від 99 грн/міс.',
     images: [{ url: '/images/desktop-banner.webp', width: 1200, height: 630, alt: 'Підключити GPON інтернет від Укртелеком' }],
   },
-  twitter: {
-    card: 'summary_large_image',
-    title: 'Підключити інтернет до 1 Гбіт/с | Укртелеком',
-    description: 'Оптичний інтернет GPON від Укртелеком — до 1 Гбіт/с, від 99 грн/міс.',
-    images: ['/images/desktop-banner.webp'],
-  },
+  twitter: { card: 'summary_large_image' },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
@@ -43,10 +33,14 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       {config.gtmId && <GoogleTagManager gtmId={config.gtmId} />}
       <AppRouterCacheProvider>
           <ThemeProvider theme={theme}>
-            {children}
-            <TelegramButton />
-            <ViberButton />
-            <ConsultationButton />
+            <ConnectModalProvider>
+              <Header />
+              {children}
+              <Footer />
+              <TelegramButton />
+              <ViberButton />
+              <ConsultationButton />
+            </ConnectModalProvider>
           </ThemeProvider>
         </AppRouterCacheProvider>
       </body>

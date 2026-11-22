@@ -6,26 +6,13 @@ import CloseIcon from '@mui/icons-material/Close';
 import { Logo } from '@/components/Logo/Logo';
 import { config } from '@/lib/config';
 import Link from 'next/link';
-import { usePathname } from 'next/navigation';
 import PhoneIcon from '@mui/icons-material/Phone';
-
-const scrollItems = [
-  { label: 'Підключитись', id: 'form-section' },
-];
 
 export const Header = () => {
   const theme = useTheme();
   const isMob = useMediaQuery(theme.breakpoints.down(765));
-  const pathname = usePathname();
-  const isHome = pathname === '/';
   const [isOpen, setIsOpen] = useState(false);
 
-  const scrollToSection = (e: React.MouseEvent<HTMLAnchorElement>, id: string) => {
-    if (!isHome) return;
-    e.preventDefault();
-    document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
-    setIsOpen(false);
-  };
 
   useEffect(() => {
     if (!isMob) setIsOpen(false);
@@ -38,6 +25,8 @@ export const Header = () => {
 
   return (
     <>
+      <Box className="fixed top-0 left-0 w-full z-50 h-[101px] bg-[rgba(1,4,9,0.30)] backdrop-blur-[15.1px]">
+      <Box className="max-w-[1170px] mx-auto px-4 md:px-6 lg:px-0">
       <Box component="header" className="flex items-center justify-between pt-[28px] pb-[10px]">
         <Link href="/" className="no-underline" onClick={() => setIsOpen(false)}>
           <Logo />
@@ -45,29 +34,24 @@ export const Header = () => {
 
         {!isMob && (
           <Box component="nav" aria-label="Головна навігація" className="flex items-center gap-[24px]">
-            {scrollItems.map((item) => (
-              <a
-                key={item.id}
-                href={isHome ? `#${item.id}` : `/#${item.id}`}
-                className="text-white/70 hover:text-white text-[15px] font-medium transition-colors duration-200 no-underline"
-                onClick={(e) => scrollToSection(e, item.id)}
-              >
-                {item.label}
-              </a>
-            ))}
+            <Link
+              href="/pidkliuchennia"
+              className="text-white/70 hover:text-[#00B3DC] text-[15px] font-medium transition-colors duration-200 no-underline"
+            >
+              Підключитись
+            </Link>
             <Link
               href="/aktsii"
               className="text-white/70 hover:text-[#00B3DC] text-[15px] font-medium transition-colors duration-200 no-underline"
             >
               Акції
             </Link>
-            <a
-              href={isHome ? '#tarrif-section' : '/#tarrif-section'}
-              className="text-white/70 hover:text-white text-[15px] font-medium transition-colors duration-200 no-underline"
-              onClick={(e) => scrollToSection(e, 'tarrif-section')}
+            <Link
+              href="/taryfy"
+              className="text-white/70 hover:text-[#00B3DC] text-[15px] font-medium transition-colors duration-200 no-underline"
             >
               Тарифи
-            </a>
+            </Link>
             <Link
               href="/blog"
               className="text-white/70 hover:text-[#00B3DC] text-[15px] font-medium transition-colors duration-200 no-underline"
@@ -107,6 +91,8 @@ export const Header = () => {
           )}
         </div>
       </Box>
+      </Box>
+      </Box>
 
       {isMob && (
         <Box
@@ -124,17 +110,14 @@ export const Header = () => {
           }}
         >
           <div className="px-5 py-2 flex flex-col">
-            {scrollItems.map((item, i) => (
-              <a
-                key={item.id}
-                href={isHome ? `#${item.id}` : `/#${item.id}`}
-                className="text-white/80 hover:text-white text-[17px] font-medium py-[14px] no-underline transition-colors duration-200"
-                style={{ borderBottom: '1px solid rgba(255,255,255,0.07)' }}
-                onClick={(e) => scrollToSection(e, item.id)}
-              >
-                {item.label}
-              </a>
-            ))}
+            <Link
+              href="/pidkliuchennia"
+              className="text-white/80 hover:text-[#00B3DC] text-[17px] font-medium py-[14px] no-underline transition-colors duration-200"
+              style={{ borderBottom: '1px solid rgba(255,255,255,0.07)' }}
+              onClick={() => setIsOpen(false)}
+            >
+              Підключитись
+            </Link>
             <Link
               href="/aktsii"
               className="text-white/80 hover:text-[#00B3DC] text-[17px] font-medium py-[14px] no-underline transition-colors duration-200"
@@ -143,14 +126,14 @@ export const Header = () => {
             >
               Акції
             </Link>
-            <a
-              href={isHome ? '#tarrif-section' : '/#tarrif-section'}
-              className="text-white/80 hover:text-white text-[17px] font-medium py-[14px] no-underline transition-colors duration-200"
+            <Link
+              href="/taryfy"
+              className="text-white/80 hover:text-[#00B3DC] text-[17px] font-medium py-[14px] no-underline transition-colors duration-200"
               style={{ borderBottom: '1px solid rgba(255,255,255,0.07)' }}
-              onClick={(e) => scrollToSection(e, 'tarrif-section')}
+              onClick={() => setIsOpen(false)}
             >
               Тарифи
-            </a>
+            </Link>
             <Link
               href="/blog"
               className="text-white/80 hover:text-[#00B3DC] text-[17px] font-medium py-[14px] no-underline transition-colors duration-200"
@@ -167,19 +150,13 @@ export const Header = () => {
             >
               Діючим Абонентам
             </Link>
-            <a
-              href={isHome ? '#form-section' : '/#form-section'}
+            <Link
+              href="/pidkliuchennia"
               className="mt-4 mb-5 text-center py-[15px] rounded-[12px] bg-[#00B3DC] text-white text-[17px] font-semibold no-underline hover:bg-[#FFDC00] hover:text-black transition-all duration-200"
-              onClick={(e) => {
-                if (isHome) {
-                  e.preventDefault();
-                  document.getElementById('form-section')?.scrollIntoView({ behavior: 'smooth' });
-                }
-                setIsOpen(false);
-              }}
+              onClick={() => setIsOpen(false)}
             >
-              Підключитись
-            </a>
+              Залишити заявку
+            </Link>
           </div>
         </Box>
       )}

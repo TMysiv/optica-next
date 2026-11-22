@@ -6,6 +6,7 @@ import { SocialLink } from '@/components/SocialLink/SocialLink';
 import { EmailLink } from '@/components/EmailLink/EmailLink';
 import { config } from '@/lib/config';
 import Link from 'next/link';
+import { usePathname, useRouter } from 'next/navigation';
 
 const FooterColTitle = ({ children }: { children: React.ReactNode }) => (
   <p className="text-white/40 text-[11px] font-semibold uppercase tracking-[1.5px] mb-[16px] m-0">{children}</p>
@@ -15,10 +16,18 @@ export const Footer = () => {
   const theme = useTheme();
   const isMob = useMediaQuery(theme.breakpoints.down(765));
 
+  const pathname = usePathname();
+  const router = useRouter();
+
   const scrollTo = (id: string) => {
-    if (id) {
-      document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
+    if (!id) {
+      return;
     }
+    if (pathname !== '/') {
+      router.push(`/#${id}`);
+      return;
+    }
+    document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
   };
 
   const NavButton = ({ label, id, href }: { label: string; id: string; href?: string }) => {
@@ -78,7 +87,7 @@ export const Footer = () => {
             <Box className="max-w-[280px]">
               <Logo />
               <p className="text-white/50 text-[13px] leading-[1.6] m-0 mt-[16px]">
-                Підключення оптичного інтернету GPON по всій Україні. Швидкість до 1 Гбіт/с. Енергонезалежна мережа до 96 годин.
+                Підключення оптичного енергонезалежного інтернету GPON по всій Україні. Швидкість до 1 Гбіт/с. Енергонезалежна мережа до 96 годин.
               </p>
             </Box>
 
@@ -113,10 +122,10 @@ export const Footer = () => {
 
       <Box className="max-w-[1170px] mx-auto px-4 py-[32px]" sx={{ borderTop: '1px solid rgba(255,255,255,0.06)' }}>
         <p className="text-white/30 text-[13px] font-semibold mb-[10px]">
-          Підключити оптичний інтернет GPON від Укртелеком по всій Україні
+          Підключити оптичний енергонезалежний інтернет GPON від Укртелеком по всій Україні
         </p>
         <p className="text-white/25 text-[12px] leading-[1.7] m-0">
-          Укртелеком надає послуги підключення оптичного інтернету GPON зі швидкістю до 1 Гбіт/с у Києві, Харкові, Одесі, Дніпрі, Запоріжжі, Львові та інших містах України. Технологія GPON забезпечує стабільний інтернет з енергонезалежністю мережі до 96 годин. Тарифи від 99 грн/міс з фіксованою ціною на 2 роки. <Link href="/blog" className="text-white/40 hover:text-white/70 transition-colors">Читати більше про GPON</Link>.
+          Укртелеком надає послуги підключення оптичного інтернету GPON зі швидкістю до 1 Гбіт/с у Києві, Харкові, Одесі, Дніпрі, Запоріжжі, Львові та інших містах України. Технологія GPON забезпечує стабільний інтернет з енергонезалежністю мережі до 96 годин. Тарифи від {config.internetPrice} грн/міс з фіксованою ціною на 2 роки. <Link href="/blog" className="text-white/40 hover:text-white/70 transition-colors">Читати більше про GPON</Link>.
         </p>
       </Box>
 

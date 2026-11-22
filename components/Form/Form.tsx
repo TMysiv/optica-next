@@ -5,25 +5,15 @@ import {
 } from '@mui/material';
 import { sendGTMEvent } from '@next/third-parties/google';
 import { beautifyErrors, houseTypes, regions, services, speeds } from '@/lib/helpers';
-import { ChangeEvent, useEffect, useMemo, useState } from 'react';
+import { ChangeEvent, useMemo, useState } from 'react';
 import { CustomButton } from '@/components/Custom/CustomButton';
 import { PhoneMask } from '@/components/Masks/PhoneMask';
 import RemoveIcon from '@mui/icons-material/Remove';
 import AddIcon from '@mui/icons-material/Add';
 import { offerCreateSchema } from '@/validation/offerCreateSchema';
-import { CustomModal } from '@/components/Custom/CustomModal';
 import { Offer, ValidationErrors } from '@/lib/types';
 import { createOffer } from '@/services/api.service';
 import data from '@/lib/addreska.json';
-
-const formSchema = {
-  '@context': 'https://schema.org',
-  '@type': 'Service',
-  name: 'Підключення інтернету GPON',
-  provider: { '@type': 'Organization', name: 'Укртелеком' },
-  areaServed: 'UA',
-  availableLanguage: 'Ukrainian',
-};
 
 const initialOffer: Offer = {
   service: 'Інтернет',
@@ -44,14 +34,19 @@ const initialOffer: Offer = {
 const createMenuItemArray = (items: { id: number; value: string }[]) =>
   items.map((item) => <MenuItem key={item.id} value={item.value}>{item.value}</MenuItem>);
 
-export const Form = () => {
-  const [offer, setOffer] = useState<Offer>(initialOffer);
+interface FormProps {
+  /** Prefilled values, e.g. the tariff chosen on a card */
+  preset?: Partial<Offer>;
+  /** Called right after a valid request is submitted */
+  onSuccess?: () => void;
+}
+
+export const Form = ({ preset, onSuccess }: FormProps) => {
+  const [offer, setOffer] = useState<Offer>({ ...initialOffer, ...preset });
   const [validationErrors, setValidationErrors] = useState<ValidationErrors<Offer>>({});
-  const [openModal, setOpenModal] = useState(false);
 
   const theme = useTheme();
   const isXs = useMediaQuery(theme.breakpoints.down(600));
-  const isS = useMediaQuery(theme.breakpoints.down(765));
 
   const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
     const { name, type, value, checked } = event.target;
@@ -61,22 +56,11 @@ export const Form = () => {
   const handleAutoCompleteChange = (name: string, value: string) => {
     setOffer((prev) => ({ ...prev, [name]: value }));
   };
-
-  useEffect(() => {
-    const handler = (e: any) => {
-      if (e?.detail) {
-        setOffer((prev) => ({ ...prev, [e.detail.name]: e.detail.value }));
-      }
-    };
-    window.addEventListener('scrollToForm', handler);
-    return () => window.removeEventListener('scrollToForm', handler);
-  }, []);
-
   const handleSaveOffer = async () => {
     try {
       const validateOffer = offerCreateSchema.validateSync(offer, { abortEarly: false }) as Offer;
       setValidationErrors({});
-      setOpenModal(true);
+      onSuccess?.();
       setOffer(initialOffer);
       await createOffer({ ...validateOffer, note: validateOffer.note?.replace(/\s+/g, ' ') });
       sendGTMEvent({ event: 'form_submit_success' });
@@ -110,13 +94,7 @@ export const Form = () => {
 
   return (
     <>
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(formSchema) }} />
-      <Box className="form-section relative" component="section" aria-label="Форма заявки на підключення інтернету">
-        <Box className="w-full h-18 bg-cyan-500 rounded-top-left rounded-top-right" />
-        <Box
-          className={`border-4 border-cyan-500 px-14 py-10 rounded-bottom-left rounded-bottom-right ${isXs ? 'flex flex-col items-center' : ''} form-block`}
-          id="form-section"
-        >
+      <Box component="section" aria-label="Форма заявки на підключення інтернету" className={isXs ? 'flex flex-col items-center' : ''}>
           <Grid container className="w-full" spacing={isXs ? 1.5 : 3}>
             <Grid size={{ xs: 12, md: 6 }}>
               <TextField
@@ -364,33 +342,6 @@ export const Form = () => {
             handleClick={handleSaveOffer}
           />
 
-          {!isS && (
-            <img
-              src="/images/mesh-router.png"
-              alt="Wi-Fi роутер TP-Link Mercusys EasyMesh для GPON інтернету"
-              className="w-45 h-70 absolute -right-7 -bottom-12"
-              loading="lazy"
-              width={180}
-              height={282}
-            />
-          )}
-
-          {openModal && (
-            <CustomModal
-              open={openModal}
-              handleCLose={() => setOpenModal(false)}
-              width={{ xs: '80%', md: '40%' }}
-              html={
-                <Box className="flex flex-col items-center gap-5 mt-5">
-                  <h2 className="text-2xl sm:text-5xl font-extrabold text-cyan-500 text-center">Ваша заявка прийнята!</h2>
-                  <p className="text-white text-base sm:text-xl text-center">Наш менеджер зателефонує в найближчий час</p>
-                  <img src="/images/logo.svg" alt="Укртелеком — оптичний інтернет провайдер" width={160} height={40} loading="lazy" />
-                </Box>
-              }
-            />
-          )}
-          <span aria-hidden="true" className="ellipse ellipse-8" />
-        </Box>
       </Box>
     </>
   );

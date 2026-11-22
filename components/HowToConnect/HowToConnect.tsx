@@ -1,4 +1,5 @@
 'use client';
+import { useConnectModal } from '@/components/ConnectModal/ConnectModalProvider';
 import { Box, useMediaQuery, useTheme } from '@mui/material';
 import type { ReactNode } from 'react';
 import EditNoteOutlined from '@mui/icons-material/EditNoteOutlined';
@@ -34,8 +35,10 @@ export const HowToConnect = () => {
   const theme = useTheme();
   const isMob = useMediaQuery(theme.breakpoints.down(765));
 
+  const { openConnect } = useConnectModal();
+
   const handleClick = () => {
-    document.getElementById('form-section')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    openConnect();
   };
 
   return (
@@ -51,7 +54,7 @@ export const HowToConnect = () => {
             id="yak-pidklyuchytys-title"
             className="text-[#00B3DC] font-semibold not-italic text-[24px] md:text-[42px] leading-[0.95] mb-[24px]"
           >
-            Як підключити інтернет
+            Як підключити інтернет{' '}
             <span className="text-white block">у 4 кроки</span>
           </h2>
           <p className="text-white/70 text-[16px] md:text-[18px] leading-[1.6] mb-[28px]">

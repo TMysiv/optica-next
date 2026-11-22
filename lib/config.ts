@@ -15,4 +15,5 @@ export const config = {
   axiomDataset: process.env.AXIOM_DATASET ?? 'optica-ukrtelecom',
   viberPhone: process.env.VIBER_PHONE,
   telegramUsername: process.env.TELEGRAM_USERNAME,
+  internetPrice: process.env.NEXT_PUBLIC_INTERNET_PRICE ?? '99',
 };

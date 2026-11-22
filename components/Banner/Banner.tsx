@@ -1,7 +1,7 @@
 'use client';
+import { useConnectModal } from '@/components/ConnectModal/ConnectModalProvider';
 import { Box, useMediaQuery, useTheme } from '@mui/material';
 import { CustomButton } from '@/components/Custom/CustomButton';
-import { Header } from '@/components/Header/Header';
 import Image from 'next/image';
 
 const advantages = [
@@ -16,8 +16,10 @@ export const Banner = () => {
   const theme = useTheme();
   const isMob = useMediaQuery(theme.breakpoints.down(765));
 
+  const { openConnect } = useConnectModal();
+
   const handleClick = () => {
-    document.getElementById('form-section')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    openConnect();
   };
 
   const bannerImg = isMob
@@ -40,11 +42,6 @@ export const Banner = () => {
           <span aria-hidden="true" key={i} className={`absolute pointer-events-none z-1 ${el}`} />
         ))}
         <Box className="max-w-[1170px] mx-auto relative z-20 banner-section pt-[80px]">
-          <Box className="fixed top-0 left-0 w-full z-50 h-[101px] bg-[rgba(1,4,9,0.30)] backdrop-blur-[15.1px]">
-            <Box className="max-w-[1170px] mx-auto px-4 md:px-6 lg:px-0">
-              <Header />
-            </Box>
-          </Box>
           <h1 className="text-[#00B3DC] font-semibold not-italic text-[74px] leading-[0.89] pt-[81px] max-w-[441px] mb-[26px]">
             Підключити оптичний інтернет
             <span className="text-white block"> GPON від Укртелеком</span>

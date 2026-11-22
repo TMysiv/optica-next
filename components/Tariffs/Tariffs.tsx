@@ -1,44 +1,13 @@
 import { Box } from '@mui/material';
 import { TariffsCard } from './TariffsCard';
-import { MarketingFTTx } from '@/descriptions/MarketingFTTx';
-import { OptimaDualOffer } from '@/descriptions/OptimaDualOffer';
-import { MaxDualOffer } from '@/descriptions/MaxDualOffer';
 import { config } from '@/lib/config';
-import { Tariff } from '@/lib/types';
-
-const tariffs: Tariff[] = [
-  {
-    id: 1,
-    name: '1 Гбіт/с',
-    img: '/images/gpon.svg',
-    price: '99',
-    extraPrice: '200',
-    modalElement: <MarketingFTTx />,
-    description: ['Енергонезалежна оптика до 96 годин', 'Знижка 50% на ігри в хмарі', 'Можливість оренди гігабітного роутера'],
-  },
-  {
-    id: 2,
-    name: 'Оптимальний дует',
-    img: '/images/gpon-megogo.svg',
-    price: '400',
-    modalElement: <OptimaDualOffer />,
-    description: ['Енергонезалежна оптика до 96 годин', 'Матчі збірної України', 'Преміальний контент Disney, Paramount', "TV на п'яти пристроях"],
-  },
-  {
-    id: 3,
-    name: 'Максимальний дует',
-    img: '/images/gpon-megogo.svg',
-    price: '600',
-    modalElement: <MaxDualOffer />,
-    description: ['Енергонезалежна оптика до 96 годин', 'Ліга Чемпіонів, Ліга Європи, Ліга націй та інші ТОПові спортивні події 2026 року!', 'Преміальний контент Disney, Paramount, Warner.Bros, HBO Max', "TV на п'яти пристроях"],
-  },
-];
+import { tariffs } from '@/lib/tariffs';
 
 const tariffsSchema = {
   '@context': 'https://schema.org',
   '@type': 'ItemList',
   name: 'Тарифи інтернету Укртелеком',
-  description: 'Оптичний інтернет GPON від Укртелеком — тарифи від 99 грн/міс',
+  description: `Оптичний інтернет GPON від Укртелеком — тарифи від ${config.internetPrice} грн/міс`,
   itemListElement: tariffs.map((tariff, index) => ({
     '@type': 'ListItem',
     position: index + 1,
@@ -61,6 +30,9 @@ const tariffsSchema = {
 export const Tariffs = () => (
   <>
     <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(tariffsSchema) }} />
+    <h2 className="text-white text-center text-[24px] md:text-[42px] font-bold leading-[117.5%] uppercase mt-[60px] md:mt-[80px] mb-0 px-4">
+      Тарифи на інтернет Укртелеком
+    </h2>
     <Box
       className="tariff-section flex justify-between relative mx-auto my-[46px] mb-[102px] max-w-[1170px] w-full"
       component="section"
@@ -69,7 +41,7 @@ export const Tariffs = () => (
     >
       <span aria-hidden="true" className="absolute pointer-events-none z-1 ellipse-4" />
       <span aria-hidden="true" className="absolute pointer-events-none z-1 ellipse-5" />
-      {tariffs.map((tariff) => (
+      {tariffs.map(({ modalElement: _modal, ...tariff }) => (
         <TariffsCard key={tariff.id} {...tariff} />
       ))}
     </Box>

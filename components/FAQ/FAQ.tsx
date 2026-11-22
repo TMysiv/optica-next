@@ -1,43 +1,21 @@
 'use client';
+import { useConnectModal } from '@/components/ConnectModal/ConnectModalProvider';
 import { useState } from 'react';
 import { Box, useMediaQuery, useTheme } from '@mui/material';
 import { config } from '@/lib/config';
 import { CustomButton } from '@/components/Custom/CustomButton';
+import { homeFaqs as faqs } from '@/lib/homeFaq';
 
-const faqs = [
-  {
-    question: 'Як підключити оптичний інтернет GPON від Укртелеком?',
-    answer: `Залиште заявку на сайті або зателефонуйте ${config.phone}. Вкажіть адресу та тип будинку: фахівець перевірить технічну можливість підключення й узгодить зручний час візиту. Далі майстер проведе оптичний кабель, встановить і налаштує обладнання.`,
-  },
-  {
-    question: 'Чи працює інтернет Укртелеком без світла?',
-    answer:
-      'Так. Інтернет Укртелеком на базі GPON працює без світла: оптоволокно не залежить від електрики у вашому будинку, а вузли мережі оператора мають резервне живлення до 96 годин (4 доби). Це енергонезалежний інтернет, який доступний під час відключень світла та блекаутів, якщо ваші роутер і оптичний термінал отримують живлення.',
-  },
-  {
-    question: 'Що потрібно, щоб інтернет працював без світла вдома?',
-    answer:
-      'Потрібно забезпечити резервне живлення обладнання вдома: оптичного терміналу (ONT) і Wi-Fi роутера. Для цього підійде павербанк із підтримкою потрібної напруги або ДБЖ (джерело безперебійного живлення). Перевірте напругу та струм на блоках живлення роутера й ONT і підберіть сумісний пристрій. Час роботи залежить від ємності акумулятора та споживання обладнання.',
-  },
-  {
-    question: 'Скільки триває підключення інтернету?',
-    answer:
-      'Орієнтовно від 1 до 5 робочих днів з моменту заявки. Точний термін залежить від вашої адреси, типу будинку та погодженого часу візиту майстра. Його назве фахівець під час дзвінка.',
-  },
-  {
-    question: 'Яка швидкість гігабітного інтернету і чи потрібен особливий роутер?',
-    answer:
-      'Тариф «1 Гбіт/с» забезпечує швидкість до 1 Гбіт/с. Щоб використовувати її повністю, потрібен роутер із гігабітними портами; можна орендувати гігабітний роутер. Швидкість по Wi-Fi залежить від моделі роутера, пристрою та відстані до нього.',
-  },
-];
 
 export const FAQ = () => {
   const theme = useTheme();
   const isMob = useMediaQuery(theme.breakpoints.down(765));
   const [openIndex, setOpenIndex] = useState<number | null>(0);
 
+  const { openConnect } = useConnectModal();
+
   const handleClick = () => {
-    document.getElementById('form-section')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    openConnect();
   };
 
   return (
@@ -51,7 +29,7 @@ export const FAQ = () => {
         id="faq-title"
         className="text-white text-center text-[24px] md:text-[42px] font-bold leading-[117.5%] mb-[16px] uppercase"
       >
-        Часті запитання
+        Часті запитання про інтернет Укртелеком
       </h2>
       <p className="text-white/70 text-center text-[14px] md:text-[17px] leading-[1.6] max-w-[720px] mx-auto mb-[48px]">
         Про підключення домашнього інтернету Укртелеком, роботу без світла та тарифи.
@@ -81,9 +59,9 @@ export const FAQ = () => {
                   <span className="text-white text-[14px] md:text-[17px] font-semibold leading-snug">
                     {faq.question}
                   </span>
-                  <span className="text-[#00B3DC] text-[28px] font-light flex-shrink-0 leading-none" aria-hidden="true">
-                    {isOpen ? '−' : '+'}
-                  </span>
+                  <svg aria-hidden="true" viewBox="0 0 20 20" className={`h-[22px] w-[22px] flex-shrink-0 text-[#00B3DC] transition-transform duration-200 ${isOpen ? 'rotate-45' : ''}`} fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round">
+                    <path d="M10 3v14M3 10h14" />
+                  </svg>
                 </button>
               </h3>
               <div

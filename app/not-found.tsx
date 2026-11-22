@@ -8,7 +8,7 @@ export const metadata: Metadata = {
 
 export default function NotFound() {
   return (
-    <main className="min-h-screen flex flex-col items-center justify-center text-center px-4" style={{ background: '#233955' }}>
+    <main className="min-h-screen flex flex-col items-center justify-center text-center px-4 pt-[101px]" style={{ background: '#233955' }}>
       <h1 className="text-[#00B3DC] text-[96px] font-bold leading-none mb-[8px]">404</h1>
       <p className="text-white text-[24px] font-semibold mb-[12px]">Сторінку не знайдено</p>
       <p className="text-white/50 text-[16px] mb-[40px] max-w-[400px]">

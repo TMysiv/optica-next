@@ -1,4 +1,5 @@
 'use client';
+import { useConnectModal } from '@/components/ConnectModal/ConnectModalProvider';
 import { Box, useMediaQuery, useTheme } from '@mui/material';
 import { useState } from 'react';
 import { CustomButton } from '@/components/Custom/CustomButton';
@@ -25,9 +26,10 @@ export const Equipments = () => {
   const theme = useTheme();
   const isMd = useMediaQuery(theme.breakpoints.down(1201));
 
+  const { openConnect } = useConnectModal();
+
   const handleClick = () => {
-    window.dispatchEvent(new CustomEvent('scrollToForm', { detail: { value: true, name: 'isMash' } }));
-    document.getElementById('form-section')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    openConnect({ isMash: true });
   };
 
   return (

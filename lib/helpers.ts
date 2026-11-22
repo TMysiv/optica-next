@@ -51,39 +51,6 @@ export const regions = [
   'Чернігівська',
 ];
 
-export const reviews = [
-  {
-    id: 1,
-    name: 'Олена Коваленко',
-    city: 'Київ',
-    rating: 5,
-    text: 'Підключились два місяці тому. Швидкість стабільна, під час відключення світла інтернет працював — це просто рятівник для роботи вдома.',
-    date: 'Червень 2026',
-    isoDate: '2026-06-01',
-    avatar: 'О',
-  },
-  {
-    id: 2,
-    name: 'Максим Сидоренко',
-    city: 'Харків',
-    rating: 5,
-    text: 'Перейшов з іншого провайдера. Різниця відчутна — 1 Гбіт реально 1 Гбіт, не "до 1 Гбіт". Майстер приїхав швидко, все налаштував.',
-    date: 'Червень 2026',
-    isoDate: '2026-06-15',
-    avatar: 'М',
-  },
-  {
-    id: 3,
-    name: 'Тетяна Мельник',
-    city: 'Львів',
-    rating: 5,
-    text: 'Взяли тариф з MEGOGO — дуже вигідно. Дітям є що дивитись, якість відео відмінна. Ціна на 2 роки фіксована — це великий плюс в наш час.',
-    date: 'Травень 2026',
-    isoDate: '2026-05-20',
-    avatar: 'Т',
-  },
-];
-
 export const stats = [
   { value: '25+', label: 'років на ринку', icon: '🏆' },
   { value: '1M+', label: 'клієнтів в Україні', icon: '👥' },
@@ -92,10 +59,11 @@ export const stats = [
 ];
 
 export const footerNavItems = [
-  { label: 'Підключитись', id: 'form-section' },
+  { label: 'Підключитись', id: '', href: '/pidkliuchennia' },
   { label: 'Акції', id: '', href: '/aktsii' },
-  { label: 'Тарифи', id: 'tarrif-section' },
-  { label: 'Відгуки', id: 'reviews-section' },
+  { label: 'Тарифи', id: '', href: '/taryfy' },
+  { label: 'Інтернет без світла', id: '', href: '/internet-bez-svitla' },
+  { label: 'Діючим абонентам', id: '', href: '/abonentam' },
   { label: 'Блог', id: '', href: '/blog' },
 ];
 
