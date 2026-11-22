@@ -20,7 +20,7 @@ export const metadata: Metadata = pageMetadata({
 });
 
 const HOTLINE = '0800 506 575';
-const HOTLINE_TEL = 'tel:0800506800';
+const HOTLINE_TEL = 'tel:0800506575';
 
 const focusRing =
   'focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#FFDC00]';

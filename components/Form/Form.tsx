@@ -86,7 +86,8 @@ export const Form = ({ preset, onSuccess }: FormProps) => {
         }
     },
     sx: {
-      '& .MuiInputBase-input': { fontSize: { xs: 14, sm: 16 }, py: { xs: '2px', sm: '4px' } },
+      // 16px on mobile: iOS Safari zooms the page when an input's text is smaller than 16px
+      '& .MuiInputBase-input': { fontSize: 16, py: { xs: '2px', sm: '4px' } },
       '& .MuiInputLabel-root': { fontSize: { xs: 13, sm: 16 } },
       '& .MuiFormHelperText-root': { fontSize: { xs: 11, sm: 12 }, mt: { xs: 0.25, sm: 0.5 } },
     },
