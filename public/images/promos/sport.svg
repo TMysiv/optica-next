@@ -1,0 +1,93 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="675" viewBox="0 0 1200 675" fill="none">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1200" y2="675" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#0B1A2E"/>
+      <stop offset="1" stop-color="#3A2A12"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="600" cy="300" r="440" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#FFDC00" stop-opacity="0.28"/>
+      <stop offset="1" stop-color="#FFDC00" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="pitch" x1="332" y1="132" x2="868" y2="456" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#2BB673"/>
+      <stop offset="1" stop-color="#127A47"/>
+    </linearGradient>
+    <linearGradient id="shine" x1="332" y1="132" x2="600" y2="456" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#FFFFFF" stop-opacity="0.22"/>
+      <stop offset="0.5" stop-color="#FFFFFF" stop-opacity="0"/>
+    </linearGradient>
+    <clipPath id="screenClip">
+      <rect x="332" y="132" width="536" height="324" rx="14"/>
+    </clipPath>
+  </defs>
+
+  <rect width="1200" height="675" fill="url(#bg)"/>
+  <circle cx="600" cy="300" r="440" fill="url(#glow)"/>
+
+  <!-- stadium lights -->
+  <g opacity="0.85">
+    <g transform="translate(130 90)">
+      <rect x="0" y="0" width="110" height="56" rx="10" fill="#FFFFFF" fill-opacity="0.12" stroke="#FFDC00" stroke-opacity="0.6" stroke-width="2"/>
+      <g fill="#FFDC00"><circle cx="25" cy="20" r="7"/><circle cx="55" cy="20" r="7"/><circle cx="85" cy="20" r="7"/><circle cx="25" cy="38" r="7"/><circle cx="55" cy="38" r="7"/><circle cx="85" cy="38" r="7"/></g>
+      <rect x="50" y="56" width="10" height="120" fill="#FFFFFF" fill-opacity="0.15"/>
+      <path d="M55 60L-40 360H150Z" fill="#FFDC00" fill-opacity="0.06"/>
+    </g>
+    <g transform="translate(960 90)">
+      <rect x="0" y="0" width="110" height="56" rx="10" fill="#FFFFFF" fill-opacity="0.12" stroke="#FFDC00" stroke-opacity="0.6" stroke-width="2"/>
+      <g fill="#FFDC00"><circle cx="25" cy="20" r="7"/><circle cx="55" cy="20" r="7"/><circle cx="85" cy="20" r="7"/><circle cx="25" cy="38" r="7"/><circle cx="55" cy="38" r="7"/><circle cx="85" cy="38" r="7"/></g>
+      <rect x="50" y="56" width="10" height="120" fill="#FFFFFF" fill-opacity="0.15"/>
+      <path d="M55 60L-40 360H150Z" fill="#FFDC00" fill-opacity="0.06"/>
+    </g>
+  </g>
+
+  <!-- TV -->
+  <rect x="310" y="110" width="580" height="390" rx="28" fill="#0A0F1A"/>
+  <rect x="310" y="110" width="580" height="390" rx="28" stroke="#4A4A3A" stroke-width="4"/>
+  <g clip-path="url(#screenClip)">
+    <rect x="332" y="132" width="536" height="324" fill="url(#pitch)"/>
+    <g fill="#FFFFFF" fill-opacity="0.06">
+      <rect x="332" y="132" width="67" height="324"/>
+      <rect x="466" y="132" width="67" height="324"/>
+      <rect x="600" y="132" width="67" height="324"/>
+      <rect x="734" y="132" width="67" height="324"/>
+    </g>
+    <g stroke="#FFFFFF" stroke-opacity="0.75" stroke-width="4" fill="none">
+      <rect x="352" y="152" width="496" height="284" rx="2"/>
+      <path d="M600 152V436"/>
+      <circle cx="600" cy="294" r="52"/>
+      <rect x="352" y="224" width="70" height="140"/>
+      <rect x="778" y="224" width="70" height="140"/>
+    </g>
+    <circle cx="600" cy="294" r="5" fill="#FFFFFF"/>
+    <rect x="332" y="132" width="536" height="324" fill="url(#shine)"/>
+  </g>
+
+  <!-- score bar -->
+  <rect x="352" y="146" width="150" height="34" rx="8" fill="#0A0F1A" fill-opacity="0.85"/>
+  <text x="427" y="170" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="20" font-weight="700" fill="#FFFFFF">2 : 1</text>
+  <rect x="790" y="146" width="58" height="34" rx="8" fill="#E53935"/>
+  <text x="819" y="169" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="700" fill="#FFFFFF">LIVE</text>
+
+  <circle cx="600" cy="480" r="5" fill="#2BD47D"/>
+  <path d="M560 500h80l20 70h-120z" fill="#1A2436"/>
+  <rect x="460" y="565" width="280" height="18" rx="9" fill="#2A3850"/>
+  <ellipse cx="600" cy="600" rx="230" ry="12" fill="#000" fill-opacity="0.35"/>
+
+  <!-- football -->
+  <g transform="translate(880 470)">
+    <circle cx="0" cy="0" r="62" fill="#FFFFFF"/>
+    <path d="M0 -22L21 -7L13 18H-13L-21 -7Z" fill="#1A2436"/>
+    <path d="M0 -22V-50M21 -7L47 -16M13 18L29 42M-13 18L-29 42M-21 -7L-47 -16" stroke="#1A2436" stroke-width="5"/>
+    <path d="M-12 -60L0 -50L12 -60M47 -16L58 -2M54 -30L47 -16M29 42L44 38M22 56L29 42M-29 42L-44 38M-22 56L-29 42M-47 -16L-58 -2M-54 -30L-47 -16" stroke="#1A2436" stroke-width="5" stroke-linecap="round"/>
+    <circle cx="0" cy="0" r="62" stroke="#1A2436" stroke-opacity="0.25" stroke-width="3"/>
+  </g>
+
+  <!-- cup -->
+  <g transform="translate(250 430)">
+    <path d="M-40 0H40V20C40 52 22 72 0 72C-22 72 -40 52 -40 20Z" fill="#FFDC00"/>
+    <path d="M-40 10H-58C-58 36 -46 48 -30 50M40 10H58C58 36 46 48 30 50" stroke="#FFDC00" stroke-width="8" fill="none"/>
+    <rect x="-8" y="70" width="16" height="26" fill="#E5B800"/>
+    <rect x="-32" y="94" width="64" height="18" rx="4" fill="#E5B800"/>
+    <path d="M-22 8V24C-22 40 -12 52 0 56" stroke="#FFFFFF" stroke-opacity="0.45" stroke-width="6" stroke-linecap="round" fill="none"/>
+  </g>
+</svg>

@@ -1,0 +1,79 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="675" viewBox="0 0 1200 675" fill="none">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1200" y2="675" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#0B1A2E"/>
+      <stop offset="1" stop-color="#1E3F66"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="600" cy="360" r="380" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#00B3DC" stop-opacity="0.45"/>
+      <stop offset="1" stop-color="#00B3DC" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="fiber" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#00B3DC" stop-opacity="0"/>
+      <stop offset="0.6" stop-color="#7FE3FF"/>
+      <stop offset="1" stop-color="#00B3DC"/>
+    </linearGradient>
+    <linearGradient id="fiberR" x1="1" y1="0" x2="0" y2="0">
+      <stop offset="0" stop-color="#00B3DC" stop-opacity="0"/>
+      <stop offset="0.6" stop-color="#7FE3FF"/>
+      <stop offset="1" stop-color="#00B3DC"/>
+    </linearGradient>
+    <linearGradient id="router" x1="440" y1="400" x2="760" y2="520" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#F4F8FC"/>
+      <stop offset="1" stop-color="#BFD0E2"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1200" height="675" fill="url(#bg)"/>
+  <g stroke="#FFFFFF" stroke-opacity="0.05">
+    <path d="M0 135H1200M0 270H1200M0 405H1200M0 540H1200"/>
+    <path d="M150 0V675M300 0V675M450 0V675M600 0V675M750 0V675M900 0V675M1050 0V675"/>
+  </g>
+  <circle cx="600" cy="360" r="380" fill="url(#glow)"/>
+
+  <!-- fiber lines -->
+  <g stroke-width="4" stroke-linecap="round">
+    <path d="M0 470C180 470 300 455 450 455" stroke="url(#fiber)"/>
+    <path d="M0 520C200 520 320 480 450 475" stroke="url(#fiber)" stroke-opacity="0.7"/>
+    <path d="M0 410C170 420 320 440 450 445" stroke="url(#fiber)" stroke-opacity="0.5"/>
+    <path d="M1200 470C1020 470 900 455 750 455" stroke="url(#fiberR)"/>
+    <path d="M1200 525C1000 525 880 485 750 475" stroke="url(#fiberR)" stroke-opacity="0.7"/>
+    <path d="M1200 405C1030 415 880 440 750 445" stroke="url(#fiberR)" stroke-opacity="0.5"/>
+  </g>
+  <g fill="#7FE3FF">
+    <circle cx="300" cy="458" r="5"/>
+    <circle cx="160" cy="512" r="4"/>
+    <circle cx="920" cy="458" r="5"/>
+    <circle cx="1060" cy="520" r="4"/>
+  </g>
+
+  <!-- wifi waves -->
+  <g stroke="#00B3DC" stroke-width="14" stroke-linecap="round" fill="none" transform="translate(0 -65)">
+    <path d="M520 300a113 113 0 0 1 160 0" stroke-opacity="1"/>
+    <path d="M465 245a191 191 0 0 1 270 0" stroke-opacity="0.7"/>
+    <path d="M410 190a269 269 0 0 1 380 0" stroke-opacity="0.4"/>
+  </g>
+  <circle cx="600" cy="288" r="16" fill="#7FE3FF"/>
+
+  <!-- router -->
+  <g>
+    <rect x="555" y="300" width="10" height="110" rx="5" fill="#BFD0E2" transform="rotate(-12 560 410)"/>
+    <rect x="635" y="300" width="10" height="110" rx="5" fill="#BFD0E2" transform="rotate(12 640 410)"/>
+    <rect x="440" y="400" width="320" height="110" rx="26" fill="url(#router)"/>
+    <rect x="440" y="482" width="320" height="28" rx="14" fill="#9FB4CB" fill-opacity="0.5"/>
+    <g>
+      <circle cx="500" cy="450" r="9" fill="#00B3DC"/>
+      <circle cx="535" cy="450" r="9" fill="#00B3DC"/>
+      <circle cx="570" cy="450" r="9" fill="#2BD47D"/>
+      <circle cx="605" cy="450" r="9" fill="#FFDC00"/>
+    </g>
+    <rect x="645" y="440" width="80" height="20" rx="10" fill="#233955" fill-opacity="0.25"/>
+    <ellipse cx="600" cy="540" rx="190" ry="14" fill="#000" fill-opacity="0.35"/>
+  </g>
+
+  <!-- speed badge -->
+  <g>
+    <rect x="845" y="150" width="230" height="84" rx="42" fill="#FFDC00"/>
+    <text x="960" y="205" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="38" font-weight="800" fill="#233955">1 Гбіт/с</text>
+  </g>
+</svg>

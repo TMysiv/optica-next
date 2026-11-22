@@ -1,0 +1,68 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="675" viewBox="0 0 1200 675" fill="none">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1200" y2="675" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#0B1A2E"/>
+      <stop offset="1" stop-color="#2A1F55"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="600" cy="320" r="420" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#00B3DC" stop-opacity="0.35"/>
+      <stop offset="1" stop-color="#00B3DC" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="screen" x1="330" y1="130" x2="870" y2="480" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#00B3DC"/>
+      <stop offset="0.55" stop-color="#3B5BDB"/>
+      <stop offset="1" stop-color="#7B2FF7"/>
+    </linearGradient>
+    <linearGradient id="shine" x1="330" y1="130" x2="600" y2="480" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#FFFFFF" stop-opacity="0.25"/>
+      <stop offset="0.5" stop-color="#FFFFFF" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1200" height="675" fill="url(#bg)"/>
+  <circle cx="600" cy="320" r="420" fill="url(#glow)"/>
+
+  <!-- floating channel tiles -->
+  <g opacity="0.9">
+    <rect x="90" y="120" width="170" height="100" rx="16" fill="#FFFFFF" fill-opacity="0.08" stroke="#7FE3FF" stroke-opacity="0.4" stroke-width="2"/>
+    <path d="M160 150l34 20-34 20z" fill="#7FE3FF"/>
+    <rect x="70" y="410" width="190" height="110" rx="16" fill="#FFFFFF" fill-opacity="0.08" stroke="#7FE3FF" stroke-opacity="0.4" stroke-width="2"/>
+    <rect x="95" y="440" width="90" height="12" rx="6" fill="#FFFFFF" fill-opacity="0.5"/>
+    <rect x="95" y="465" width="140" height="12" rx="6" fill="#FFFFFF" fill-opacity="0.3"/>
+    <rect x="95" y="490" width="110" height="12" rx="6" fill="#FFFFFF" fill-opacity="0.3"/>
+    <rect x="950" y="110" width="170" height="100" rx="16" fill="#FFFFFF" fill-opacity="0.08" stroke="#7FE3FF" stroke-opacity="0.4" stroke-width="2"/>
+    <circle cx="1035" cy="160" r="26" fill="none" stroke="#FFDC00" stroke-width="6"/>
+    <path d="M1025 145l24 15-24 15z" fill="#FFDC00"/>
+    <rect x="940" y="420" width="190" height="110" rx="16" fill="#FFFFFF" fill-opacity="0.08" stroke="#7FE3FF" stroke-opacity="0.4" stroke-width="2"/>
+    <g fill="#7FE3FF">
+      <rect x="965" y="490" width="16" height="20" rx="3"/>
+      <rect x="991" y="470" width="16" height="40" rx="3"/>
+      <rect x="1017" y="455" width="16" height="55" rx="3"/>
+      <rect x="1043" y="478" width="16" height="32" rx="3"/>
+      <rect x="1069" y="462" width="16" height="48" rx="3"/>
+    </g>
+  </g>
+
+  <!-- TV -->
+  <rect x="310" y="110" width="580" height="390" rx="28" fill="#0A0F1A"/>
+  <rect x="310" y="110" width="580" height="390" rx="28" stroke="#3A4A63" stroke-width="4"/>
+  <rect x="332" y="132" width="536" height="324" rx="14" fill="url(#screen)"/>
+  <rect x="332" y="132" width="536" height="324" rx="14" fill="url(#shine)"/>
+
+  <!-- play button -->
+  <circle cx="600" cy="294" r="74" fill="#FFFFFF" fill-opacity="0.18"/>
+  <circle cx="600" cy="294" r="54" fill="#FFFFFF"/>
+  <path d="M584 266l46 28-46 28z" fill="#3B5BDB"/>
+
+  <!-- progress bar -->
+  <rect x="372" y="420" width="456" height="8" rx="4" fill="#FFFFFF" fill-opacity="0.3"/>
+  <rect x="372" y="420" width="190" height="8" rx="4" fill="#FFDC00"/>
+  <circle cx="562" cy="424" r="10" fill="#FFDC00"/>
+
+  <circle cx="600" cy="480" r="5" fill="#2BD47D"/>
+
+  <!-- stand -->
+  <path d="M560 500h80l20 70h-120z" fill="#1A2436"/>
+  <rect x="460" y="565" width="280" height="18" rx="9" fill="#2A3850"/>
+  <ellipse cx="600" cy="600" rx="230" ry="12" fill="#000" fill-opacity="0.35"/>
+</svg>
