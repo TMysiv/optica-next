@@ -1,18 +1,18 @@
 'use client';
-import { config } from '@/lib/config';
 import { usePathname } from 'next/navigation';
 
-export default function ViberButton() {
+export default function ViberButton({ phone }: { phone?: string }) {
   const pathname = usePathname();
 
-  if (pathname === '/abonentam') {
+  if (pathname === '/abonentam' || !phone) {
     return null;
   }
 
   return (
     <a
-      href={`viber://chat?number=${encodeURIComponent(`+${config.viberPhone}`)}`}
+      href={`viber://chat?number=${encodeURIComponent(`+${phone}`)}`}
       aria-label="Viber"
+      data-track-location="floating"
       className="fixed right-[24px] bottom-[164px] z-[1000] flex h-[56px] w-[56px] items-center justify-center rounded-full bg-[#7360F2] text-white shadow-lg transition-transform hover:scale-110"
     >
       <svg width="30" height="30" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">

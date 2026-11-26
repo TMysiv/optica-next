@@ -63,7 +63,7 @@ export const Form = ({ preset, onSuccess }: FormProps) => {
       onSuccess?.();
       setOffer(initialOffer);
       await createOffer({ ...validateOffer, note: validateOffer.note?.replace(/\s+/g, ' ') });
-      sendGTMEvent({ event: 'form_submit_success' });
+      sendGTMEvent({ event: 'form_submit_success', tariff: validateOffer.service, page_path: window.location.pathname });
     } catch (errors) {
       setValidationErrors(beautifyErrors(errors));
     }

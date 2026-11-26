@@ -90,7 +90,7 @@ export const FAQ = () => {
           handleClick={handleClick}
         />
         <a
-          href={`tel:${config.phone}`}
+          href={`tel:+38${config.phone}`}
           className="text-white/80 hover:text-white underline underline-offset-4 text-[15px] transition-colors"
         >
           {config.phone}

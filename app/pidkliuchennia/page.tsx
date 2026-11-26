@@ -7,8 +7,8 @@ import { tariffs } from '@/lib/tariffs';
 import { Breadcrumbs } from '@/components/Breadcrumbs/Breadcrumbs';
 import { ConnectPageForm } from '@/components/ConnectModal/ConnectPageForm';
 
-const TITLE = `Підключити інтернет Укртелеком онлайн — від ${config.internetPrice} грн/міс`;
-const DESCRIPTION = `Підключення інтернету Укртелеком онлайн: проведемо оптоволоконний інтернет GPON до 1 Гбіт/с, що працює до 96 годин без світла. Від ${config.internetPrice} грн/міс.`;
+const TITLE = 'Підключити інтернет Укртелеком у квартиру чи будинок';
+const DESCRIPTION = `Заявка на підключення інтернету Укртелеком онлайн: менеджер перевірить адресу, майстер проведе оптику GPON у квартиру чи будинок. Від ${config.internetPrice} грн/міс.`;
 const URL = `${config.domain}/pidkliuchennia`;
 
 export const metadata: Metadata = pageMetadata({ title: TITLE, description: DESCRIPTION, path: '/pidkliuchennia', imageAlt: 'Підключити інтернет Укртелеком' });

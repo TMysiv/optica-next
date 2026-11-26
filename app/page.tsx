@@ -11,8 +11,8 @@ import { tariffs } from '@/lib/tariffs';
 import { homeFaqs } from '@/lib/homeFaq';
 
 export const metadata: Metadata = pageMetadata({
-  title: `Підключити інтернет Укртелеком GPON | від ${config.internetPrice} грн/міс`,
-  description: `Домашній інтернет Укртелеком: оптоволокно GPON до 1 Гбіт/с, що працює до 96 годин без світла. Від ${config.internetPrice} грн/міс — залиште заявку онлайн.`,
+  title: `Оптичний інтернет Укртелеком GPON — від ${config.internetPrice} грн/міс`,
+  description: `Домашній оптичний інтернет GPON від Укртелеком: до 1 Гбіт/с, мережа працює до 96 годин без світла, ціна фіксована на 2 роки. Тарифи від ${config.internetPrice} грн/міс.`,
   path: '/',
   imageAlt: 'Підключити GPON інтернет від Укртелеком',
 });

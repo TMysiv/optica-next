@@ -11,11 +11,12 @@ import ViberButton from '@/components/ViberButton/ViberButton';
 import { Header } from '@/components/Header/Header';
 import { Footer } from '@/components/Footer/Footer';
 import { ConnectModalProvider } from '@/components/ConnectModal/ConnectModalProvider';
+import { ContactClickTracker } from '@/components/Analytics/ContactClickTracker';
 
 export const metadata: Metadata = {
   metadataBase: new URL(config.domain),
-  title: `Підключити інтернет Укртелеком GPON | від ${config.internetPrice} грн/міс`,
-  description: `Підключення оптичного інтернету GPON від Укртелеком: до 1 Гбіт/с, працює до 96 годин без світла, від ${config.internetPrice} грн/міс.`,
+  title: `Оптичний інтернет Укртелеком GPON — від ${config.internetPrice} грн/міс`,
+  description: `Домашній оптичний інтернет GPON від Укртелеком: до 1 Гбіт/с, мережа працює до 96 годин без світла, ціна фіксована на 2 роки. Тарифи від ${config.internetPrice} грн/міс.`,
   robots: { index: true, follow: true },
   openGraph: {
     type: 'website',
@@ -37,9 +38,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
               <Header />
               {children}
               <Footer />
-              <TelegramButton />
-              <ViberButton />
+              <TelegramButton username={config.telegramUsername} />
+              <ViberButton phone={config.viberPhone} />
               <ConsultationButton />
+              <ContactClickTracker phone={config.phone} viberPhone={config.viberPhone} telegramUsername={config.telegramUsername} />
             </ConnectModalProvider>
           </ThemeProvider>
         </AppRouterCacheProvider>
