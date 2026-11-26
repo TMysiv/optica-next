@@ -2,7 +2,10 @@ import type { Metadata } from 'next';
 import { config } from '@/lib/config';
 
 export const SITE_NAME = 'Укртелеком';
-/** Default social preview image (raster: social networks don't render SVG previews) */
+export const ORG_NAME = 'Укртелеком GPON — офіційний представник';
+
+export const siteOrgSchema = { '@type': 'Organization', name: ORG_NAME, url: config.domain } as const;
+export const ukrtelecomSchema = { '@type': 'Organization', name: 'АТ «Укртелеком»', url: 'https://ukrtelecom.ua' } as const;
 export const DEFAULT_OG_IMAGE = '/images/desktop-banner.webp';
 
 interface PageMetaInput {
@@ -42,7 +45,7 @@ export function pageMetadata({
     openGraph: {
       type,
       url,
-      siteName: SITE_NAME,
+      siteName: ORG_NAME,
       locale: 'uk_UA',
       title,
       description,

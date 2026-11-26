@@ -6,7 +6,7 @@ import { NoLightSection } from '@/components/NoLightSection/NoLightSection';
 import { HowToConnect } from '@/components/HowToConnect/HowToConnect';
 import type { Metadata } from 'next';
 import { config } from '@/lib/config';
-import { pageMetadata } from '@/lib/seo';
+import { ORG_NAME, pageMetadata, siteOrgSchema } from '@/lib/seo';
 import { tariffs } from '@/lib/tariffs';
 import { homeFaqs } from '@/lib/homeFaq';
 
@@ -19,11 +19,10 @@ export const metadata: Metadata = pageMetadata({
 
 const schemaOrg = {
   '@context': 'https://schema.org',
-  '@type': ['Organization', 'TelecommunicationsService'],
-  name: 'Укртелеком',
+  ...siteOrgSchema,
   url: `${config.domain}/`,
-  logo: `${config.domain}/images/logo.svg`,
-  description: 'Підключення оптичного інтернету GPON до 1 Гбіт/с по всій Україні. Енергонезалежна мережа до 96 годин.',
+  description: 'Офіційний представник АТ «Укртелеком»: підключення оптичного інтернету GPON до 1 Гбіт/с по всій Україні. Енергонезалежна мережа до 96 годин.',
+  brand: { '@type': 'Brand', name: 'Укртелеком' },
   areaServed: { '@type': 'Country', name: 'Ukraine' },
   hasOfferCatalog: {
     '@type': 'OfferCatalog',
@@ -42,7 +41,7 @@ const schemaOrg = {
 const websiteSchema = {
   '@context': 'https://schema.org',
   '@type': 'WebSite',
-  name: 'Укртелеком — оптичний інтернет GPON',
+  name: ORG_NAME,
   url: `${config.domain}/`,
   inLanguage: 'uk',
 };

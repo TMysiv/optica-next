@@ -52,7 +52,7 @@ export const Footer = () => {
           <Box className="flex flex-col gap-0">
             <Box className="flex justify-center mb-[28px]"><Logo /></Box>
 
-            <a href={`tel:+38${config.phone}`} className="no-underline flex flex-col items-center mb-[28px]" aria-label="Безкоштовний номер Укртелеком">
+            <a href={`tel:+38${config.phone}`} className="no-underline flex flex-col items-center mb-[28px]" aria-label={`Зателефонувати: ${config.phone}`}>
               <Box className="w-full rounded-[16px] py-[18px] px-[20px] flex flex-col items-center gap-[4px]" sx={{ background: 'linear-gradient(135deg, rgba(0,179,220,0.15) 0%, rgba(0,179,220,0.05) 100%)', border: '1px solid rgba(0,179,220,0.3)' }}>
                 <span className="text-[#00B3DC] text-[26px] font-bold tracking-wide">{config.phone}</span>
               </Box>
@@ -103,7 +103,7 @@ export const Footer = () => {
             <Box>
               <FooterColTitle>Контакти</FooterColTitle>
               <Box className="flex flex-col gap-[12px]">
-                <a href={`tel:+38${config.phone}`} className="no-underline group" aria-label="Безкоштовний номер Укртелеком">
+                <a href={`tel:+38${config.phone}`} className="no-underline group" aria-label={`Зателефонувати: ${config.phone}`}>
                   <span className="text-[#00B3DC] text-[20px] font-bold group-hover:text-white transition-colors duration-200">{config.phone}</span>
                 </a>
                 <EmailLink className="text-white/50 hover:text-white text-[13px] transition-colors duration-200" email={config.email ?? ''} />
@@ -125,13 +125,16 @@ export const Footer = () => {
           Підключити оптичний енергонезалежний інтернет GPON від Укртелеком по всій Україні
         </p>
         <p className="text-white/25 text-[12px] leading-[1.7] m-0">
-          Укртелеком надає послуги підключення оптичного інтернету GPON зі швидкістю до 1 Гбіт/с у Києві, Харкові, Одесі, Дніпрі, Запоріжжі, Львові та інших містах України. Технологія GPON забезпечує стабільний інтернет з енергонезалежністю мережі до 96 годин. Тарифи від {config.internetPrice} грн/міс з фіксованою ціною на 2 роки. <Link href="/blog" className="text-white/40 hover:text-white/70 transition-colors">Читати більше про GPON</Link>.
+          Ми — офіційний представник Укртелеком: допомагаємо підключити оптичний інтернет GPON зі швидкістю до 1 Гбіт/с у Києві, Харкові, Одесі, Дніпрі, Запоріжжі, Львові та інших містах України. Технологія GPON забезпечує стабільний інтернет з енергонезалежністю мережі до 96 годин. Тарифи від {config.internetPrice} грн/міс з фіксованою ціною на 2 роки. <Link href="/blog" className="text-white/40 hover:text-white/70 transition-colors">Читати більше про GPON</Link>.
         </p>
       </Box>
 
       <Box className="py-[20px]" sx={{ borderTop: '1px solid rgba(255,255,255,0.06)', background: 'rgba(0,0,0,0.2)' }}>
         <Box className="max-w-[1170px] mx-auto px-4 flex flex-col md:flex-row justify-center items-center gap-[8px]">
-          <span className="text-white/30 text-[12px]">© {new Date().getFullYear()} Офіційний представник АТ «Укртелеком».</span>
+          <span className="text-white/55 text-[12px] text-center">
+            © {new Date().getFullYear()} Офіційний представник АТ «Укртелеком». Послуги звʼязку надає АТ «Укртелеком» —{' '}
+            <a href="https://ukrtelecom.ua" target="_blank" rel="noopener noreferrer" className="text-white/70 hover:text-white underline underline-offset-2">ukrtelecom.ua</a>.
+          </span>
         </Box>
       </Box>
     </Box>

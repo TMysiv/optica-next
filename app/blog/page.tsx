@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import { getAllPosts, getCategories } from '@/lib/posts';
 import { config } from '@/lib/config';
-import { pageMetadata } from '@/lib/seo';
+import { pageMetadata, siteOrgSchema } from '@/lib/seo';
 import { Breadcrumbs } from '@/components/Breadcrumbs/Breadcrumbs';
 import { BlogGrid } from '@/components/Blog/BlogGrid';
 import { PostCover, categoryChip, formatPostDate } from '@/components/Blog/PostCover';
@@ -37,7 +37,7 @@ export default function BlogPage() {
     name: TITLE,
     description: DESCRIPTION,
     url: URL,
-    publisher: { '@type': 'Organization', name: 'Укртелеком', url: config.domain },
+    publisher: siteOrgSchema,
     mainEntity: {
       '@type': 'ItemList',
       itemListElement: posts.map((p, i) => ({ '@type': 'ListItem', position: i + 1, url: `${URL}/${p.slug}`, name: p.title })),

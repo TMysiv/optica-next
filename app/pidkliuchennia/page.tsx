@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import Image from 'next/image';
 import Link from 'next/link';
 import { config } from '@/lib/config';
-import { pageMetadata } from '@/lib/seo';
+import { pageMetadata, siteOrgSchema, ukrtelecomSchema } from '@/lib/seo';
 import { tariffs } from '@/lib/tariffs';
 import { Breadcrumbs } from '@/components/Breadcrumbs/Breadcrumbs';
 import { ConnectPageForm } from '@/components/ConnectModal/ConnectPageForm';
@@ -72,7 +72,8 @@ const serviceSchema = {
   '@context': 'https://schema.org',
   '@type': 'Service',
   name: 'Підключення інтернету GPON',
-  provider: { '@type': 'Organization', name: 'Укртелеком', url: config.domain },
+  provider: ukrtelecomSchema,
+  broker: siteOrgSchema,
   areaServed: { '@type': 'Country', name: 'Ukraine' },
   availableLanguage: 'Ukrainian',
   url: URL,

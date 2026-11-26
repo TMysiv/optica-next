@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
 import { getAllPosts, getPostBySlug, getPostOgImage } from '@/lib/posts';
-import { pageMetadata, withBrand } from '@/lib/seo';
+import { pageMetadata, siteOrgSchema, withBrand } from '@/lib/seo';
 import { config } from '@/lib/config';
 import { Breadcrumbs } from '@/components/Breadcrumbs/Breadcrumbs';
 import { PostCard } from '@/components/Blog/PostCard';
@@ -61,12 +61,8 @@ export default async function BlogPostPage({ params }: Props) {
     dateModified: post.date,
     image: { '@type': 'ImageObject', url: `${config.domain}${getPostOgImage(slug)}`, width: 1200, height: 630 },
     inLanguage: 'uk',
-    author: { '@type': 'Organization', name: 'Укртелеком', url: config.domain },
-    publisher: {
-      '@type': 'Organization',
-      name: 'Укртелеком',
-      logo: { '@type': 'ImageObject', url: `${config.domain}/images/logo.svg` },
-    },
+    author: siteOrgSchema,
+    publisher: siteOrgSchema,
     mainEntityOfPage: { '@type': 'WebPage', '@id': url },
   };
 

@@ -3,7 +3,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { notFound } from 'next/navigation';
 import { config } from '@/lib/config';
-import { pageMetadata, ogFromIllustration, withBrand } from '@/lib/seo';
+import { pageMetadata, ogFromIllustration, siteOrgSchema, ukrtelecomSchema, withBrand } from '@/lib/seo';
 import { Breadcrumbs } from '@/components/Breadcrumbs/Breadcrumbs';
 import { promos, getPromoBySlug, formatPromoDate } from '@/lib/promos';
 
@@ -57,7 +57,8 @@ export default async function PromoPage({ params }: Props) {
     name: promo.schemaName ?? promo.title,
     ...(promo.description ? { description: promo.description } : {}),
     image: `${config.domain}${ogFromIllustration(promo.image)}`,
-    provider: { '@type': 'Organization', name: 'Укртелеком' },
+    provider: ukrtelecomSchema,
+    broker: siteOrgSchema,
     offers: {
       '@type': 'Offer',
       price: String(promo.price),

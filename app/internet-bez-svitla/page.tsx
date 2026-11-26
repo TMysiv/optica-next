@@ -3,7 +3,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { config } from '@/lib/config';
 import { tariffs } from '@/lib/tariffs';
-import { pageMetadata, ogFromIllustration } from '@/lib/seo';
+import { pageMetadata, ogFromIllustration, siteOrgSchema, ukrtelecomSchema } from '@/lib/seo';
 import { Breadcrumbs } from '@/components/Breadcrumbs/Breadcrumbs';
 
 const PATH = '/internet-bez-svitla';
@@ -120,7 +120,8 @@ const serviceSchema = {
   '@type': 'Service',
   name: 'Енергонезалежний інтернет GPON',
   description: 'Оптичний інтернет GPON від Укртелеком, мережа якого працює до 96 годин без зовнішнього живлення.',
-  provider: { '@type': 'Organization', name: 'Укртелеком', url: config.domain },
+  provider: ukrtelecomSchema,
+  broker: siteOrgSchema,
   areaServed: { '@type': 'Country', name: 'Ukraine' },
   url: URL,
   offers: { '@type': 'Offer', price: config.internetPrice, priceCurrency: 'UAH', url: `${config.domain}/taryfy/internet-1-gbit` },

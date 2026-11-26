@@ -4,6 +4,7 @@ import { ThemeProvider } from '@mui/material/styles';
 import { GoogleTagManager } from '@next/third-parties/google';
 import theme from '@/lib/theme';
 import { config } from '@/lib/config';
+import { ORG_NAME } from '@/lib/seo';
 import { ConsultationButton } from '@/components/ConsultationButton/ConsultationButton';
 import './globals.css';
 import TelegramButton from '@/components/TelegramButton/TelegramButtom';
@@ -20,7 +21,7 @@ export const metadata: Metadata = {
   robots: { index: true, follow: true },
   openGraph: {
     type: 'website',
-    siteName: 'Укртелеком',
+    siteName: ORG_NAME,
     locale: 'uk_UA',
     images: [{ url: '/images/desktop-banner.webp', width: 1200, height: 630, alt: 'Підключити GPON інтернет від Укртелеком' }],
   },
